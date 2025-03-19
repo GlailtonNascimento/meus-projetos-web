@@ -3,6 +3,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 body {
@@ -24,5 +27,11 @@ body {
 }
 
 header {
-  padding: 40px 4% 4%;
+  padding: 40px 4%;
+}
+
+header > .interface {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
