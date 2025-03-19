@@ -4,7 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "DM Serif Text", serif;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -34,4 +34,37 @@ header > .interface {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+header a {
+  color: #2e2e2e;
+  text-decoration: none;
+}
+
+header a :hover {
+  color: #ffffff;
+  transform: scale(1.06);
+}
+
+header nav ul {
+  list-style-type: none;
+}
+
+header nav ul li {
+  display: inline-block;
+  padding: 0 40px;
+}
+
+header .btn-contato button {
+  padding: 10px 40px;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: #00ff08;
+  border: 0;
+  border-radius: 30rem;
+  cursor: pointer;
+}
+
+header .btn-contato button:hover {
+  box-shadow: 0px 0px 8px #00ff08;
 }
