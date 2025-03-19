@@ -1,110 +1,139 @@
 /* ESTILO GERAL */
 * {
-  /* Remove margem e preenchimento padrão de todos os elementos */
   margin: 0;
   padding: 0;
-  /* Garante que o tamanho de todos os elementos seja calculado de acordo com a borda */
   box-sizing: border-box;
-  /* Definindo a fonte padrão para todos os elementos */
   font-family: "DM Serif Text", serif;
-  /* Definindo o peso da fonte */
   font-weight: 500;
-  /* Estilo da fonte em normal */
   font-style: normal;
 }
 
 /* ESTILO DO BODY */
 body {
-  /* Definindo a cor de fundo da página como preta */
   background-color: #000;
-  /* Definindo a altura do body como 100% da altura da janela */
   height: 100vh;
 }
 
 /* ESTILO PARA A INTERFACE (container principal) */
 .interface {
-  /* Definindo a largura máxima do container */
   max-width: 1280px;
-  /* Centralizando o conteúdo na tela */
   margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+/* Botão */
+.btn-contato button {
+  padding: 10px 40px;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #00ff08;
+  border: 0;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-contato button:hover {
+  box-shadow: 0px 0px 8px #00ff08;
+  transform: scale(1.05);
 }
 
 /* ESTILO PARA O CABEÇALHO */
 header {
-  /* Espaçamento interno do cabeçalho */
   padding: 40px 4%;
 }
 
 header > .interface {
-  /* Usando Flexbox para alinhar os itens horizontalmente */
   display: flex;
-  /* Alinha os itens ao centro verticalmente */
   align-items: center;
-  /* Espaça os itens para os lados opostos do container */
   justify-content: space-between;
 }
 
 /* ESTILO PARA A LOGO */
 .logo img {
-  /* Definindo largura e altura para a logo */
   width: 110px;
   height: 110px;
-  /* Fazendo com que a imagem se ajuste sem distorção */
   object-fit: contain;
 }
 
-/* ESTILO PARA LINKS NO CABEÇALHO */
+/* ESTILO PARA OS LINKS NO CABEÇALHO */
 header a {
-  /* Definindo a cor dos links como cinza escuro */
   color: #7d7d7d;
-  /* Removendo o sublinhado dos links */
   text-decoration: none;
-  /* Adicionando transições suaves para o efeito de hover */
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
-/* ESTILO PARA O EFEITO DE HOVER NOS LINKS */
 header a:hover {
-  /* Mudando a cor do link para branco ao passar o mouse */
   color: #fff;
-  /* Aumentando um pouco o tamanho do link quando o mouse passar */
   transform: scale(1.1);
 }
 
 /* ESTILO PARA O MENU DE NAVEGAÇÃO */
 header nav ul {
-  /* Removendo os pontos da lista */
   list-style-type: none;
 }
 
-/* ESTILO PARA OS ITENS DA LISTA NO MENU */
 header nav ul li {
-  /* Exibindo os itens de forma horizontal (inline) */
   display: inline-block;
-  /* Adicionando espaço entre os itens do menu */
   padding: 0 40px;
 }
 
-/* ESTILO PARA O BOTÃO DE CONTATO */
-header .btn-contato button {
-  /* Espaçamento interno do botão */
-  padding: 10px 40px;
-  /* Tamanho da fonte */
-  font-size: 16px;
-  /* Definindo o peso da fonte como negrito */
-  font-weight: 700;
-  /* Cor de fundo do botão */
-  background-color: #00ff08;
-  /* Removendo a borda do botão */
-  border: 0;
-  /* Borda arredondada para o botão */
-  border-radius: 30px;
-  /* Definindo o cursor como pointer para indicar que é clicável */
-  cursor: pointer;
+/* EFEITO DE HOVER PARA O BOTÃO DE CONTATO */
+.btn-contato button:hover {
+  box-shadow: 0px 0px 8px #00ff08;
+  transform: scale(1.05);
 }
 
-/* EFEITO DE HOVER PARA O BOTÃO DE CONTATO */
-header .btn-contato button:hover {
-  /* Adicionando uma sombra ao redor do botão quando o mouse passar por cima */
-  box-shadow: 0px 0px 8px #00ff08;
+/* Estilo do topo do site */
+section.topo-do-site {
+  padding: 40px 4%;
+}
+
+section.topo-do-site.flex {
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+}
+
+.topo-do-site h1 {
+  color: #fff;
+  font-size: 43px;
+  line-height: 40px;
+}
+
+.topo-do-site .txt-topo-site h1 span {
+  color: #00ff08;
+  font-size: 30px;
+}
+
+.topo-do-site .txt-topo-site p {
+  color: #fff;
+  margin: 19px 0;
+  line-height: 1.5;
+  margin: 40px 0;
+}
+
+.topo-do-site .txt-topo-site p span {
+  color: #00ff08; /* Somente o ponto final fica verde */
+  font-size: inherit; /* Mantém o tamanho do texto do parágrafo */
+}
+
+.topo-do-site .img-topo-site img {
+  position: relative;
+  animation: flutuar 2s ease-in-out infinite alternate;
+  width: 350px;
+  height: 350px;
+  object-fit: contain;
+}
+
+@keyframes flutuar {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 30px;
+  }
 }
