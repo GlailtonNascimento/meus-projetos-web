@@ -1,4 +1,4 @@
-/* ESTILO GERAL */
+ /* ESTILO GERAL */
 * {
   margin: 0;
   padding: 0;
@@ -8,10 +8,15 @@
   font-style: normal;
 }
 
-/* ESTILO DO BODY */
+
 body {
   background-color: #000;
   height: 100vh;
+}
+
+button:hover {
+  box-shadow: 0px 0px 8px #00ff08;
+  transform: scale(1.05);
 }
 
 /* ESTILO PARA A INTERFACE (container principal) */
@@ -34,11 +39,6 @@ body {
   border-radius: 30px;
   cursor: pointer;
   transition: 0.2s;
-}
-
-.btn-contato button:hover {
-  box-shadow: 0px 0px 8px #00ff08;
-  transform: scale(1.05);
 }
 
 h2.titulo {
@@ -197,3 +197,94 @@ section.especialidades .flex {
     height: 250px;
   }
 }
+
+/* Estilo do Sobre */
+section .sobre {
+  padding: 40px 4%;
+}
+
+section .sobre .flex {
+  align-items: center;
+  gap: 60px;
+  display: flex;
+  flex-direction: row; /* Alinha a imagem e o texto na horizontal */
+}
+
+.sobre .txt-sobre {
+  color: #fff;
+  margin-top: 20px; /* Adiciona um espaço acima do texto */
+  padding-left: 20px; /* Ajuste o espaçamento à esquerda */
+  padding-right: 20px; /* Ajuste o espaçamento à direita */
+}
+
+.sobre .txt-sobre h2 {
+  font-size: 40px;
+  line-height: 40px;
+  margin-bottom: 30px;
+}
+
+.sobre .txt-sobre h2 span {
+  color: #00ff08;
+  display: block;
+}
+
+.sobre .txt-sobre p {
+  margin: 15px 0;
+  text-align: justify;
+  list-style: none; /* Garante que não haja lista com pontos indesejados */
+  text-indent: 10px; /* Adiciona um pequeno recuo na primeira linha do parágrafo */
+}
+
+
+/* Estilo para os botões sociais */
+.sobre .txt-sobre .btn-social {
+  margin-top: 20px;
+}
+
+.sobre .txt-sobre .btn-social a {
+  margin: 0 10px; /* Espaçamento entre os ícones */
+}
+
+.sobre .txt-sobre .btn-social button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background-color: #00ff08;
+  font-size: 22px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+}
+
+.sobre .txt-sobre .btn-social button i {
+  font-size: 30px; /* Tamanho do ícone */
+  color: white; /* Cor do ícone */
+}
+
+/* Efeito hover para os botões */
+.sobre .txt-sobre .btn-social button:hover {
+  background-color: #00cc00; /* Muda a cor de fundo ao passar o mouse */
+}
+
+
+.sobre .img-sobre {
+  width: 100%;
+  height: 100vh; /* Ajusta a altura para ocupar toda a altura da tela */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  flex-grow: 1;
+  border-radius: 20px;
+}
+
+.sobre .img-sobre img {
+  max-width: 100%; /* Ajusta a largura máxima da imagem */
+  height: 100%; /* Faz a altura da imagem ocupar toda a altura da div */
+  object-fit: cover; /* A imagem vai cobrir a área da div sem distorcer */
+  display: block;
+  border-radius: 15px;
+  transition: .2s;
+}
+
