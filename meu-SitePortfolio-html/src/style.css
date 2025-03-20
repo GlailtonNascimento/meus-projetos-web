@@ -212,7 +212,7 @@ section .sobre .flex {
 
 .sobre .txt-sobre {
   color: #fff;
-  margin-top: 20px; /* Adiciona um espaço acima do texto */
+  margin-top: 18px; /* Adiciona um espaço acima do texto */
   padding-left: 20px; /* Ajuste o espaçamento à esquerda */
   padding-right: 20px; /* Ajuste o espaçamento à direita */
 }
@@ -269,7 +269,7 @@ section .sobre .flex {
 
 
 .sobre .img-sobre {
-  width: 100%;
+  width: 98%;
   height: 100vh; /* Ajusta a altura para ocupar toda a altura da tela */
   display: flex;
   justify-content: center;
@@ -281,10 +281,25 @@ section .sobre .flex {
 
 .sobre .img-sobre img {
   max-width: 100%; /* Ajusta a largura máxima da imagem */
-  height: 100%; /* Faz a altura da imagem ocupar toda a altura da div */
+  height: 75%; /* Faz a altura da imagem ocupar toda a altura da div */
   object-fit: cover; /* A imagem vai cobrir a área da div sem distorcer */
   display: block;
   border-radius: 15px;
   transition: .2s;
 }
 
+/* ESTILO DO PORTFÓLIO */
+section.portfolio{
+  padding: 80px 4%;
+  box-shadow: 0 0 50px 10px #ffffff1d;
+}
+
+section.portfolio .flex{
+  justify-content: space-around;
+}
+
+.img-port{
+  width: 360px;
+  height: 460px;
+  background-color: #00ff08;
+}
