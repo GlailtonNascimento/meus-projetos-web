@@ -155,14 +155,13 @@ section.especialidades .flex {
   color: #fff;
   padding: 40px;
   border-radius: 20px;
-  margin-top: 46px;
-  transition: 0.2s;
-  cursor: pointer; /* Adicionando o cursor de mão */
+  margin-top: 45px;
+  transition: .2s;
 }
 
 .especialidades .especialidades-box:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 8px #ffffff78;
+  box-shadow: 0 0 18px #ffffff78;
 }
 
 .especialidades .especialidades-box i {
