@@ -4,7 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "DM Serif Text", serif;
-  font-weight: 500;
+  font-weight: 900;
   font-style: normal;
 }
 
@@ -53,7 +53,7 @@ h2.titulo span {
 
 /* ESTILO PARA O CABEÇALHO */
 header {
-  padding: 40px 4%;
+  padding: 25px 4%;
 }
 
 header > .interface {
@@ -73,7 +73,8 @@ header > .interface {
 header a {
   color: #7d7d7d;
   text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 header a:hover {
@@ -91,15 +92,9 @@ header nav ul li {
   padding: 0 40px;
 }
 
-/* EFEITO DE HOVER PARA O BOTÃO DE CONTATO */
-.btn-contato button:hover {
-  box-shadow: 0px 0px 8px #00ff08;
-  transform: scale(1.05);
-}
-
 /* Estilo do topo do site */
 section.topo-do-site {
-  padding: 46px 3, 6%;
+  padding: 46px 4%;
 }
 
 section.topo-do-site.flex {
@@ -121,13 +116,12 @@ section.topo-do-site.flex {
 
 .topo-do-site .txt-topo-site p {
   color: #fff;
-  line-height: 0, 1;
+  line-height: 1.5;
   margin: 40px 0;
 }
 
 .topo-do-site .txt-topo-site p span {
-  color: #00ff08; /* Somente o ponto final fica verde */
-  font-size: inherit; /* Mantém o tamanho do texto do parágrafo */
+  color: #00ff08;
   font-size: 50px;
 }
 
@@ -163,6 +157,7 @@ section.especialidades .flex {
   border-radius: 20px;
   margin-top: 46px;
   transition: 0.2s;
+  cursor: pointer; /* Adicionando o cursor de mão */
 }
 
 .especialidades .especialidades-box:hover {
@@ -178,4 +173,28 @@ section.especialidades .flex {
 .especialidades .especialidades-box h3 {
   font-size: 28px;
   margin: 15px 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .flex {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  header nav ul li {
+    display: block;
+    padding: 10px 0;
+  }
+
+  .topo-do-site.flex {
+    flex-direction: column-reverse;
+    gap: 40px;
+  }
+
+  .topo-do-site .img-topo-site img {
+    width: 250px;
+    height: 250px;
+  }
 }
