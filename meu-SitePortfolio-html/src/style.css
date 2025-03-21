@@ -14,7 +14,7 @@ body {
   height: 100vh;
 }
 
-button:hover {
+button:hover, form .tbn-enviar input:hover{
   box-shadow: 0px 0px 8px #00ff08;
   transform: scale(1.05);
 }
@@ -335,4 +335,54 @@ section.portfolio .flex{
 
 .overlay:hover{
   opacity: 1;
+}
+
+/* Estilo Do Formulario De Contato */
+section.formulario{
+  padding: 80px 4%;
+}
+
+form{
+  max-width:500px;
+  margin:0 auto ;
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+form input, form textarea{
+  width: 100%;
+  background-color: #242424;
+  border:0;
+  outline:0;
+  padding:20px 15px;
+  border-radius:15px ;
+  color: #fff;
+  font-size:18px;
+}
+
+form textarea{
+  resize: none;
+  margin-right: 200px;
+}
+
+
+form input::placeholder{
+  color: #00ff08;
+}
+
+form .tbn-enviar{
+  margin-top: 20px;
+  text-align: center;
+}
+
+form .tbn-enviar input{
+  width: 120px;
+  background-color: #00ff08;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .2s;
 }
