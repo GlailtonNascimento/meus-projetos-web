@@ -13,7 +13,7 @@ body {
   height: 100vh;
 }
 
-button:hover, form .tbn-oenviar input:hover {
+button:hover, form .btn-enviar input:hover {
   box-shadow: 0px 0px 8px #00ff08;
   transform: scale(1.05);
 }
@@ -63,8 +63,8 @@ header > .interface {
 
 /* ESTILO PARA A LOGO */
 .logo img {
-  width: 110px;
-  height: 110px;
+  width: 200px;
+  height: 200px;
   object-fit: contain;
 }
 
@@ -334,10 +334,10 @@ section.portfolio .flex{
 
 /* ESTILO DO FORMULÁRIO DE CONTATO */
 section.formulario {
-    padding: 80px 4%;
+  padding: 80px 4%;
 }
 
-form {
+form{
     max-width: 500px;
     margin: 0 auto;
     display: flex;
@@ -355,13 +355,17 @@ form textarea {
     outline: 0;
     padding: 20px 15px;
     border-radius: 15px;
-    color: #fff;
+    color:#00FFFF;
     font-size: 18px;
+}
+
+form input::placeholder{
+  color: #00FF08;
 }
 
 form textarea {
     resize: none;
-    max-height: 200px;
+    max-height: 250px;
 }
 
 form .btn-enviar {
@@ -407,7 +411,7 @@ footer .line-footer p a {
 }
 
 footer .logo-footer img {
-    width: 100px; /* Ajuste o tamanho conforme necessário */
+    width: 200px; /* Ajuste o tamanho conforme necessário */
     height: auto; /* Mantém a proporção */
 }
 
