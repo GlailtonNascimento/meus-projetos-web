@@ -1,4 +1,4 @@
- /* ESTILO GERAL */
+/* ESTILO GERAL */
 * {
   margin: 0;
   padding: 0;
@@ -8,13 +8,12 @@
   font-style: normal;
 }
 
-
 body {
   background-color: #000;
   height: 100vh;
 }
 
-button:hover, form .tbn-enviar input:hover{
+button:hover, form .tbn-oenviar input:hover {
   box-shadow: 0px 0px 8px #00ff08;
   transform: scale(1.05);
 }
@@ -207,14 +206,14 @@ section .sobre .flex {
   align-items: center;
   gap: 60px;
   display: flex;
-  flex-direction: row; /* Alinha a imagem e o texto na horizontal */
+  flex-direction: row;
 }
 
 .sobre .txt-sobre {
   color: #fff;
-  margin-top: 18px; /* Adiciona um espaço acima do texto */
-  padding-left: 20px; /* Ajuste o espaçamento à esquerda */
-  padding-right: 20px; /* Ajuste o espaçamento à direita */
+  margin-top: 18px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .sobre .txt-sobre h2 {
@@ -231,18 +230,16 @@ section .sobre .flex {
 .sobre .txt-sobre p {
   margin: 15px 0;
   text-align: justify;
-  list-style: none; /* Garante que não haja lista com pontos indesejados */
-  text-indent: 10px; /* Adiciona um pequeno recuo na primeira linha do parágrafo */
+  list-style: none;
+  text-indent: 10px;
 }
 
-
-/* Estilo para os botões sociais */
 .sobre .txt-sobre .btn-social {
   margin-top: 20px;
 }
 
 .sobre .txt-sobre .btn-social a {
-  margin: 0 10px; /* Espaçamento entre os ícones */
+  margin: 0 10px;
 }
 
 .sobre .txt-sobre .btn-social button {
@@ -258,19 +255,17 @@ section .sobre .flex {
 }
 
 .sobre .txt-sobre .btn-social button i {
-  font-size: 30px; /* Tamanho do ícone */
-  color: white; /* Cor do ícone */
+  font-size: 30px;
+  color: white;
 }
 
-/* Efeito hover para os botões */
 .sobre .txt-sobre .btn-social button:hover {
-  background-color: #00cc00; /* Muda a cor de fundo ao passar o mouse */
+  background-color: #00cc00;
 }
-
 
 .sobre .img-sobre {
   width: 98%;
-  height: 100vh; /* Ajusta a altura para ocupar toda a altura da tela */
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -280,15 +275,15 @@ section .sobre .flex {
 }
 
 .sobre .img-sobre img {
-  max-width: 100%; /* Ajusta a largura máxima da imagem */
-  height: 75%; /* Faz a altura da imagem ocupar toda a altura da div */
-  object-fit: cover; /* A imagem vai cobrir a área da div sem distorcer */
+  max-width: 100%;
+  height: 75%;
+  object-fit: cover;
   display: block;
   border-radius: 15px;
   transition: .2s;
 }
 
-/* ESTILO DO PORTFÓLIO */
+/* Estilo do Portfólio */
 section.portfolio{
   padding: 80px 4%;
   box-shadow: 0 0 50px 10px #ffffff1d;
@@ -328,61 +323,5 @@ section.portfolio .flex{
   justify-content: center;
   font-size: 24px;
   font-weight: 600;
-  color: #fff;
-  opacity: 0;
-  transition: .5s;
 }
 
-.overlay:hover{
-  opacity: 1;
-}
-
-/* Estilo Do Formulario De Contato */
-section.formulario{
-  padding: 80px 4%;
-}
-
-form{
-  max-width:500px;
-  margin:0 auto ;
-  display: flex;
-  justify-content:center;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 40px;
-}
-
-form input, form textarea{
-  width: 100%;
-  background-color: #242424;
-  border:0;
-  outline:0;
-  padding:20px 15px;
-  border-radius:15px ;
-  color: #fff;
-  font-size:18px;
-}
-
-form textarea{
-  resize: none;
-  margin-right: 200px;
-}
-
-
-form input::placeholder{
-  color: #00ff08;
-}
-
-form .tbn-enviar{
-  margin-top: 20px;
-  text-align: center;
-}
-
-form .tbn-enviar input{
-  width: 120px;
-  background-color: #00ff08;
-  color: #000;
-  font-weight: 700;
-  cursor: pointer;
-  transition: .2s;
-}
