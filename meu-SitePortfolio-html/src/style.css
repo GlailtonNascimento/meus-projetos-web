@@ -99,7 +99,7 @@ section.topo-do-site {
 section.topo-do-site.flex {
   align-items: center;
   justify-content: center;
-  gap: 180px;
+  gap: 90px;
 }
 
 .topo-do-site h1 {
@@ -413,6 +413,63 @@ footer .line-footer p a {
 footer .logo-footer img {
     width: 200px; /* Ajuste o tamanho conforme necessário */
     height: auto; /* Mantém a proporção */
+}
+
+/* Cabeçalho */
+@media screen and (max-width: 1041px) {
+
+  /* Classes Gerais */
+  .flex {
+    flex-direction: column;
+  }
+
+  .topo-do-site .flex {
+    flex-direction: column-reverse;
+  }
+
+  /* Cabeçalho */
+  .menu-desktop,
+  .btn-contato {
+    display: none;
+  }
+
+  /* Topo do Site */
+  section.topo-do-site.flex {
+    gap: 40px;
+  }
+
+  section.topo-do-site {
+    padding: 20px 8%;
+  }
+
+  .topo-do-site h1 {
+    font-size: 30px;
+  }
+
+  /* Ajustes na imagem flutuante */
+  .topo-do-site .img-topo-site img {
+    width: 100%;
+    max-width: 159px; /* Diminuindo ainda mais o tamanho da imagem */
+    margin-top: 40px; /* Distância do topo */
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Ajustando a logo */
+  .logo {
+    position: absolute;
+    top: 7px; /* Subindo um pouco mais a logo */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+
+  /* Ajustando o texto para descer um pouco */
+  .topo-do-site .txt-topo-site {
+    position: relative;
+    z-index: 5;
+    margin-top: 10px; /* Distância do topo */
+  }
 }
 
 
