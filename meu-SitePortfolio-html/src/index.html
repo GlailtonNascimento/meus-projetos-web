@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="style.css" />
     <!-- Importa o CSS externo -->
 
+    <script src="js/menu.js" defer></script> <!-- Caso o arquivo esteja na pasta "js" -->
+
     <title>Meu-Site</title>
   </head>
   <body>
@@ -56,8 +58,11 @@
           </a>
         </div>
         <!--btn-contato-->
+        <div class="btn-abrir-menu" id="btn-menu">
+          <i class="bi bi-list"></i>
+        </div>
 
-        <div class="menu-mobile">
+        <div class="menu-mobile" id="menu-mobile">
           <div class="btn-fechar">
             <i class="bi bi-x-lg"></i>
           </div><!---btn-fechar-->
@@ -73,6 +78,8 @@
         </nav>
 
         </div><!--menu-mobile--->
+        <div class="overlay-menu"></div>
+
       </div>
       <!--interface-->
     </header>
