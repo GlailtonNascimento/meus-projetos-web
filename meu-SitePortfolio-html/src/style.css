@@ -595,3 +595,8 @@ section.portfolio .flex {
 
 
 }
+
+/* html */
+html {
+  scroll-behavior: smooth;
+}
