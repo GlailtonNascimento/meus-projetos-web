@@ -21,3 +21,20 @@ overlay.addEventListener("click", () => {
   menuMobile.classList.remove("abrir-menu");
   overlay.style.display = "none";
 });
+
+// Fechar com ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && menuMobile.classList.contains('abrir-menu')) {
+    menuMobile.classList.remove('abrir-menu');
+    overlay.style.display = 'none';
+  }
+});
+
+// Fechar ao clicar no overlay (melhorado)
+overlay.addEventListener('click', () => {
+  menuMobile.classList.remove('abrir-menu');
+  overlay.style.opacity = '0';
+  setTimeout(() => {
+    overlay.style.display = 'none';
+  }, 300); // Sincronizado com a transição
+});
