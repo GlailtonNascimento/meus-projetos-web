@@ -28,3 +28,41 @@ document.addEventListener("keydown", (e) => {
     overlay.style.display = "none";
   }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const btnVoltarTopo = document.getElementById('btn-voltar-topo');
+
+    // Mostra/oculta o botão com base na posição de rolagem
+    const exibirOcultarBotao = () => {
+        if (window.scrollY > 300) {
+            btnVoltarTopo.classList.add('mostrar');
+        } else {
+            btnVoltarTopo.classList.remove('mostrar');
+        }
+    };
+
+    // Adiciona o evento de rolagem
+    window.addEventListener('scroll', exibirOcultarBotao);
+
+    // Rola para o topo ao clicar no botão
+    btnVoltarTopo.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Rola para o topo ao clicar em um item do menu mobile
+    const menuLinks = document.querySelectorAll('.menu-mobile nav ul a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Executa a função de exibição/ocultação na carga da página
+    exibirOcultarBotao();
+});
