@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuMobile = document.querySelector(".menu-mobile");
     const btnFechar = document.querySelector(".btn-fechar i");
     const overlay = document.querySelector(".overlay-menu");
-    const btnVoltarTopo = document.getElementById('btn-voltar-topo');
+    const btnInicioFixo = document.getElementById('btn-inicio-fixo');
     const inicioSection = document.getElementById('Inicio');
     const menuLinksMobile = document.querySelectorAll('.menu-mobile nav ul a');
-    const btnTopoFlutuante = document.getElementById('btn-topo-flutuante');
+    const btnTopoFlutuanteLateral = document.getElementById('btn-topo-flutuante-lateral');
 
     // Funções para o menu mobile
     const abrirMenu = () => {
@@ -20,25 +20,22 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.style.display = "none";
     };
 
-    // Funções para o botão voltar ao topo
-    const exibirOcultarBotao = () => {
-        if (!inicioSection || !btnVoltarTopo || !btnTopoFlutuante) return;
-
-        // Obtém a posição vertical do topo da seção "INÍCIO" em relação à viewport
-        const inicioTopPosition = inicioSection.getBoundingClientRect().top;
-
-        if (inicioTopPosition < 0) {
-            btnVoltarTopo.style.display = 'flex'; // Ou 'block'
-            btnTopoFlutuante.style.display = 'flex'; // Mostra o novo botão flutuante
-        } else {
-            btnVoltarTopo.style.display = 'none';
-            btnTopoFlutuante.style.display = 'none';
-        }
-    };
-
     const voltarParaInicio = () => {
         if (inicioSection) {
             inicioSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    // Função para exibir/ocultar o botão flutuante lateral
+    const exibirOcultarBotaoLateral = () => {
+        if (!inicioSection || !btnTopoFlutuanteLateral) return;
+
+        const inicioTopPosition = inicioSection.getBoundingClientRect().top;
+
+        if (inicioTopPosition < 0) {
+            btnTopoFlutuanteLateral.style.display = 'flex'; // Ou 'block'
+        } else {
+            btnTopoFlutuanteLateral.style.display = 'none';
         }
     };
 
@@ -54,15 +51,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Event listeners para o botão voltar ao topo
-    window.addEventListener('scroll', exibirOcultarBotao);
-    btnVoltarTopo.addEventListener('click', voltarParaInicio);
-    btnTopoFlutuante.addEventListener('click', voltarParaInicio);
+    // Event listeners para o botão "INÍCIO" fixo
+    btnInicioFixo.addEventListener('click', voltarParaInicio);
+
+    // Event listeners para o botão flutuante lateral
+    window.addEventListener('scroll', exibirOcultarBotaoLateral);
+    btnTopoFlutuanteLateral.addEventListener('click', voltarParaInicio);
 
     // Rolar para o topo ao clicar em um item do menu mobile
     menuLinksMobile.forEach(link => {
         link.addEventListener('click', () => {
-            fecharMenu(); // Opcional: fechar o menu ao clicar no link
+            fecharMenu();
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
@@ -71,5 +70,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Executa a função de exibição/ocultação na carga da página
-    exibirOcultarBotao();
+    exibirOcultarBotaoLateral(); // Executa para verificar na carga inicial
 });
