@@ -1,88 +1,109 @@
 /* ESTILO GERAL */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "DM Serif Text", serif;
-    font-weight: 900;
-    font-style: normal;
+    margin: 0; /* Remove as margens padrão de todos os elementos */
+    padding: 0; /* Remove o preenchimento padrão de todos os elementos */
+    box-sizing: border-box; /* Garante que a largura e a altura incluam bordas e preenchimento */
+    font-family: "DM Serif Text", serif; /* Define a fonte principal do texto */
+    font-weight: 900; /* Define a espessura da fonte como negrito */
+    font-style: normal; /* Define o estilo da fonte como normal (não itálico) */
 }
 
+/* ESTILOS DO BODY (TEMA CLARO PADRÃO) */
 body {
-    background-color: #000;
-    min-height: 100vh;
+    background-color: #000; /* Cor de fundo clara padrão (tema claro) */
+    color: #fff; /* Cor do texto escura padrão (tema claro) */
+    min-height: 100vh; /* Garante que o body ocupe pelo menos a altura da tela */
     width: 100%; /* Adiciona largura total */
+    padding-top: 80px; /* Ajuste para a altura do cabeçalho fixo */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Adiciona transição suave para mudanças de cor */
 }
 
+/* ESTILOS DO HTML */
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Adiciona rolagem suave ao clicar em links internos */
 }
 
+/* ESTILOS PARA HOVER DE BOTÕES E INPUTS DE FORMULÁRIO */
 button:hover,
 form .btn-enviar input:hover {
-    box-shadow: 0px 0px 8px #00ff08;
-    transform: scale(1.05);
+    box-shadow: 0px 0px 8px #00ff08; /* Adiciona uma sombra verde ao passar o mouse */
+    transform: scale(1.05); /* Aumenta levemente o tamanho ao passar o mouse */
 }
 
 /* CONTAINER PRINCIPAL */
 .interface {
-    max-width: 1280px;
-    margin: 0 auto;
+    max-width: 1280px; /* Define a largura máxima do container principal */
+    margin: 0 auto; /* Centraliza o container na tela */
 }
 
+/* ESTILOS PARA ELEMENTOS FLEXBOX */
 .flex {
-    display: flex;
+    display: flex; /* Define o display como flexbox para organizar os elementos internos */
 }
 
-/* TIPOGRAFIA */
+/* TIPOGRAFIA - TÍTULO PRINCIPAL */
 h2.titulo {
-    color: #fff;
-    font-size: 38px;
-    text-align: center;
+    color: #fff; /* Cor branca para o título */
+    font-size: 38px; /* Tamanho da fonte do título */
+    text-align: center; /* Centraliza o texto do título */
 }
 
+/* TIPOGRAFIA - SPAN DENTRO DO TÍTULO */
 h2.titulo span {
-    color: #00ff08;
+    color: #00ff08; /* Cor verde para o span dentro do título */
 }
 
-/* CABEÇALHO */
+/* CABEÇALHO FIXO */
 header {
-    padding: 25px 4%;
+    position: fixed; /* Torna o cabeçalho fixo na parte superior da tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #19191a; /* Cor de fundo escura do cabeçalho */
+    padding: 25px 4%; /* Adiciona preenchimento interno */
+    z-index: 100; /* Garante que o cabeçalho fique acima de outros elementos */
 }
 
+/* CONTAINER INTERNO DO CABEÇALHO */
 header>.interface {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: center; /* Alinha verticalmente os itens dentro do cabeçalho */
+    justify-content: space-between; /* Espaça os itens horizontalmente */
 }
 
+/* LOGOTIPO */
 .logo img {
     width: 200px;
     height: 200px;
-    object-fit: contain;
+    object-fit: contain; /* Garante que a imagem caiba dentro das dimensões sem cortar */
 }
 
+/* LINKS DO CABEÇALHO */
 header a {
-    color: #7d7d7d;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    color: #7d7d7d; /* Cor cinza para os links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Adiciona transição suave para cor e transformação */
 }
 
+/* HOVER DOS LINKS DO MENU DESKTOP */
 header .menu-desktop a:hover {
-    color: #fff;
-    transform: scale(1.1);
+    color: #fff; /* Cor branca ao passar o mouse */
+    transform: scale(1.1); /* Aumenta levemente o tamanho ao passar o mouse */
 }
 
+/* LISTA NÃO ORDENADA DO MENU */
 header nav ul {
-    list-style-type: none;
+    list-style-type: none; /* Remove os marcadores de lista */
 }
 
+/* ITENS DA LISTA DO MENU DESKTOP */
 header nav.menu-desktop ul li {
-    display: inline-block;
-    padding: 0 20px;
+    display: inline-block; /* Exibe os itens horizontalmente */
+    padding: 0 20px; /* Adiciona preenchimento horizontal entre os itens */
 }
 
-@media (min-width: 1042px) { /* Estilos para telas maiores que 1041px */
+/* ESTILOS PARA TELAS MAIORES QUE 1041PX */
+@media (min-width: 1042px) {
     header>.interface {
         display: flex;
         align-items: center;
@@ -98,7 +119,8 @@ header nav.menu-desktop ul li {
     }
 }
 
-@media (max-width: 1041px) { /* Estilos para telas menores */
+/* ESTILOS PARA TELAS MENORES QUE 1041PX */
+@media (max-width: 1041px) {
     header>.interface {
         display: flex;
         align-items: center;
@@ -119,7 +141,7 @@ header nav.menu-desktop ul li {
     }
 }
 
-/* MENU MOBILE */
+/* MENU MOBILE - BOTÃO DE ABRIR */
 .btn-abrir-menu {
     position: absolute;
     right: 10px;
@@ -132,6 +154,7 @@ header nav.menu-desktop ul li {
     font-size: 39px;
 }
 
+/* MENU MOBILE */
 .menu-mobile {
     background-color: #1a1a1a;
     height: 100vh;
@@ -148,6 +171,7 @@ header nav.menu-desktop ul li {
     width: 80%;
 }
 
+/* MENU MOBILE - BOTÃO DE FECHAR */
 .menu-mobile .btn-fechar {
     padding: 15px 20%;
 }
@@ -157,6 +181,7 @@ header nav.menu-desktop ul li {
     font-size: 30px;
 }
 
+/* MENU MOBILE - NAVEGAÇÃO */
 .menu-mobile nav ul {
     text-align:right;
 }
@@ -175,6 +200,7 @@ header nav.menu-desktop ul li {
     color: #000;
 }
 
+/* OVERLAY DO MENU MOBILE */
 .overlay-menu {
     background-color: rgba(0, 0, 0, 0.8);
     width: 100%;
@@ -190,7 +216,8 @@ header nav.menu-desktop ul li {
 /* TOPO DO SITE */
 section.topo-do-site {
     padding: 46px 4%;
-    color: #fff; /* Cor branca padrão para toda a seção */
+    /* color: #fff; /* Cor branca padrão para toda a seção - REMOVIDO PARA HERDAR DO BODY */
+    /* Remova a margem superior para evitar espaço extra abaixo do cabeçalho fixo */
 }
 
 section.topo-do-site.flex {
@@ -240,7 +267,7 @@ section.topo-do-site.flex {
     display: inline-block;
     animation: escrever 3s steps(30, end) infinite; /* Aplica a animação de escrever em loop */
     white-space: nowrap; /* Garante que o texto fique em uma linha */
-    overflow: hidden;    /* ADICIONE ESTA LINHA */
+    overflow: hidden;     /* ADICIONE ESTA LINHA */
 }
 
 .topo-do-site .txt-topo-site .cursor {
@@ -377,18 +404,19 @@ section.sobre .flex {
 
 .sobre .img-sobre {
     width: 98%;
-    height: 100vh;
+    height: auto; /* Ajustar para auto para manter a proporção */
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     flex-grow: 1;
     border-radius: 20px;
+    max-height: 500px; /* Adicionar uma altura máxima para controle */
 }
 
 .sobre .img-sobre img {
     max-width: 100%;
-    height: 75%;
+    height: auto;
     object-fit: cover;
     display: block;
     border-radius: 15px;
@@ -405,6 +433,7 @@ section.portfolio .flex {
     justify-content: space-around;
     margin-top: 60px;
     gap: 60px;
+    flex-wrap: wrap; /* Permitir que os itens quebrem para a próxima linha em telas menores */
 }
 
 .img-port {
@@ -417,6 +446,7 @@ section.portfolio .flex {
     cursor: pointer;
     border-radius: 40px;
     position: relative;
+    overflow: hidden; /* Garante que o overlay fique dentro das bordas */
 }
 
 .img-port:hover {
@@ -437,7 +467,7 @@ section.portfolio .flex {
     color: white;
     padding: 10px;
     opacity: 1; /* Torna o texto visível */
-}
+    border-
 
 .img-port img {
     max-width: 100%;
@@ -461,6 +491,38 @@ section.portfolio .flex {
     color: #fff;
     opacity: 0;
     transition: 0.5s;
+    text-align: center; /* Centralizar texto no overlay */
+    padding: 20px; /* Adicionar um pouco de padding para melhor leitura */
+}
+
+border-radius: 40px; /* Manter o border-radius */
+    text-align: center; /* Centralizar o texto */
+}
+
+.img-port img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000b8; /* Fundo preto semi-transparente */
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    opacity: 0;
+    transition: 0.5s;
+    text-align: center; /* Centralizar texto no overlay */
+    padding: 20px; /* Adicionar um pouco de padding para melhor leitura */
 }
 
 .overlay:hover {
@@ -547,10 +609,26 @@ footer {
 
 footer .flex {
     justify-content: space-between;
+    align-items: center; /* Alinhar verticalmente os itens do rodapé */
+    flex-wrap: wrap; /* Permitir que os itens quebrem para a próxima linha em telas menores */
+    gap: 20px; /* Adicionar um pouco de espaço entre os itens */
 }
 
 footer .line-footer {
     padding: 20px 0;
+    width: 100%; /* Garante que cada linha ocupe a largura total em telas menores */
+    text-align: center; /* Centralizar o texto em telas menores */
+}
+
+@media (min-width: 768px) {
+    footer .line-footer {
+        width: auto; /* Voltar ao comportamento padrão em telas maiores */
+        text-align: left; /* Alinhar à esquerda em telas maiores */
+    }
+
+    footer .flex {
+        justify-content: space-between; /* Manter o espaçamento entre os blocos em telas maiores */
+    }
 }
 
 .borda {
@@ -560,10 +638,12 @@ footer .line-footer {
 footer .line-footer p i {
     color: #00ff08;
     font-size: 22px;
+    margin-right: 5px; /* Adicionar espaço entre o ícone e o texto */
 }
 
 footer .line-footer p a {
     color: #fff;
+    text-decoration: none; /* Remover sublinhado dos links */
 }
 
 footer .logo-footer img {
@@ -571,26 +651,144 @@ footer .logo-footer img {
     height: auto;
 }
 
-/* BOTÕES */
-.btn-contato button {
-    padding: 10px 40px;
-    font-size: 16px;
-    font-weight: 700;
-    background-color: #00ff08;
-    border: 0;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.2s;
+/* BOTÃO "VOLTAR AO TOPO" FIXO */
+#btn-inicio-fixo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99; /* Garante que fique acima de outros elementos */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
+#btn-inicio-fixo.mostrar {
+    opacity: 1;
+    visibility: visible;
+}
 
-/* RESPONSIVIDADE */
+#btn-inicio-fixo button {
+    background-color: #00ff08;
+    color: #000;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#btn-inicio-fixo button i {
+    font-size: 20px;
+}
+
+#btn-inicio-fixo button:hover {
+    background-color: #00cc00;
+}
+
+/* ... MENU FIXO ... */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000; /* Fundo preto */
+    padding: 15px 4%;
+    z-index: 100;
+    color: #fff; /* Cor do texto branco no cabeçalho */
+    display: flex; /* Usar flexbox para alinhar os itens */
+    align-items: center; /* Alinhar verticalmente os itens */
+    justify-content: space-between; /* Espaçar os itens horizontalmente */
+}
+
+header .container {
+    /* Não precisamos mais do container com flex, pois o header já é flex */
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex; /* Manter flex para o conteúdo interno, se necessário */
+    align-items: center;
+    justify-content: space-between; /* Espaçar os ícones e o título */
+    width: 100%; /* O container ocupa toda a largura dentro do padding do header */
+}
+
+/* Estilos para o menu hambúrguer (ícones) */
+.menu {
+    font-size: 28px; /* Tamanho dos ícones */
+    cursor: pointer;
+    color: #00ff08; /* Cor verde */
+}
+
+.ri-close-line {
+    display: none; /* Inicialmente escondido */
+}
+
+/* Estilos para o título "Portfólio" centralizado */
+header a {
+    color: #fff; /* Cor branca para o link do título */
+    text-decoration: none; /* Remover sublinhado */
+    font-size: 28px; /* Tamanho da fonte do título */
+    margin: 0; /* Resetar margens padrão */
+}
+
+/* Para garantir que o título fique centralizado, podemos usar flex-grow */
+header a {
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Estilos para o toggle de tema */
+.toggle {
+    display: flex;
+    align-items: center;
+}
+
+.toggle input[type="checkbox"] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+.toggle label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 25px;
+    background:#00ff08;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+}
+
+.toggle label .box {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 19px;
+    height: 19px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+.toggle input:checked + label {
+    background: #1a1a1a; /* Cor escura quando "escuro" estiver ativo */
+}
+
+.toggle input:checked + label .box {
+    left: calc(100% - 3px - 19px);
+}
+
+/* Esconder menu desktop e botão contato em telas maiores (mantendo) */
+@media (min-width: 1042px) {
+    /* ... seus estilos para telas maiores ... */
+}
+
+/* Mostrar menu hambúrguer e toggle em telas menores (mantendo) */
 @media (max-width: 1041px) {
-    .flex {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    /* Adicione aqui outros estilos específicos para telas menores que 1041px */
+    /* ... seus estilos para telas menores ... */
 }

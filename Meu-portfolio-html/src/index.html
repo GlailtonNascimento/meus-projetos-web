@@ -1,158 +1,163 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap"
-        rel="stylesheet"
-    />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="qk6Sv7s_z-kzYtHiCVe1-9lr6BCjC1-II9k5V7Lt3c4" />
+    <title>Portfólio | Glailton Nascimento - Desenvolvedor Web</title>
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
-    <link rel="stylesheet" href="style.css" />
-    <title>Meu-Site</title>
-
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap"
+        rel="stylesheet"
+    />
+    <script src="theme-switcher.js" defer></script>
+    <script defer src="scripts/index.js" type="module"></script>
+    <script defer src="scripts/renderData.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="menu.js" defer></script>
+    <script src="email-config.js" defer></script>
 </head>
 <body>
     <header>
-        <div class="interface">
-            <div class="logo">
-                <a href="#">
-                    <img src="../assets/imagem/novalogotransparente.png" alt="minha logo"
-                        alt="minha logo"
-                    /></a>
+        <div class="container">
+            <div class="menu">
+                <i class="ri-menu-line" id="btn-menu"></i>
+                <i class="ri-close-line hidden"></i>
             </div>
-
-            <nav class="menu-desktop" id="menuPrincipal">
-                                <ul>
-                                    <li><a href="#Inicio">Inicio</a></li>
-                                    <li><a href="#Especialidade">Especialidade</a></li>
-                                    <li><a href="#Sobre">Sobre</a></li>
-                                    <li><a href="#Projetos">Projetos</a></li>
-                                </ul>
-                            </nav>
-
-            <div class="btn-contato">
-                <a href="#Contato">
-                    <button>CONTATO</button>
-                </a>
-            </div>
-            <div class="btn-abrir-menu" id="btn-menu">
-                <i class="bi bi-list"></i>
-            </div>
-
-            <div class="menu-mobile" id="menu-mobile">
-                <div class="btn-fechar">
-                    <i class="bi bi-x-lg"></i>
-                </div><nav>
-                    <ul>
-                        <li><a href="#Inicio">Inicio</a></li>
-                        <li><a href="#Especialidade">Especialidade</a></li>
-                        <li><a href="#Sobre">Sobre</a></li>
-                        <li><a href="#Projetos">Projetos</a></li>
-                        <li><a href="#Contato">Contato</a></li>
-                    </ul>
-                </nav>
-
-            </div><div class="overlay-menu"></div>
-
+            <a href="#Inicio">
+                <h2>Portfólio</h2>
+            </a>
         </div>
-        </header>
+        <div class="menu-mobile" id="menu-mobile">
+            <div class="btn-fechar">
+                <i class="bi bi-x-lg"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#Inicio">Inicio</a></li>
+                    <li><a href="#Especialidade">Especialidade</a></li>
+                    <li><a href="#Sobre">Sobre</a></li>
+                    <li><a href="#Projetos">Projetos</a></li>
+                    <li><a href="#Contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="overlay-menu"></div>
+    </header>
 
-    <main>
-        <section class="topo-do-site" id="Inicio">
-            <div class="interface">
-                <div class="flex">
-                    <div class="txt-topo-site">
+    <section id="Inicio" class="js-section topo-do-site">
+        <div class="container interface">
+            <div class="banner flex">
+                <div class="intro txt-topo-site">
+                    <div class="title">
                         <h3 class="saudacao">
                             Olá, eu sou o <span class="saudacao-pontos">...</span>
                         </h3>
-                        <h2 class="nome">Glailton Nascimento</h2>
+                        <h1 class="nome">Glailton Nascimento</h1>
                         <h1 class="profissao">
                             <span class="profissao-texto">Web Developer, Front-end, Back-end.</span>
                             <span class="cursor"></span>
                         </h1>
                     </div>
-                    <div class="img-topo-site">
-                        <img src="../assets/imagem/FotoPerfilCodigo - Copia.jpeg" alt="fotoPerfil" />
+                    <div class="actions">
+                        <a href="#" download>Download CV ()</a>
+                        <a href="#Contato" target="_blank">Entrar em contato</a>
+                        <a href="glailtonprogramador88@gmail.com" target="_blank">Entrar em contato</a>
+                    </div>
+                </div>
+                <div class="profile img-topo-site">
+                    <a href="https://github.com/GlailtonNascimento" target="_blank">
+                        <img src="../assets/imagem/FotoPerfilCodigo - Copia.jpeg" alt="fotoPerfil">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Sobre" class="js-section sobre">
+        <div class="container interface">
+            <div class="flex">
+                <div class="img-sobre">
+                    <img src="../assets/imagem/EueGeoCartoon.jpeg" alt="img-sobre" />
+                </div>
+                <div class="txt-sobre">
+                    <h2>MUITO PRAZER,<span>SOU GLAILTON NASCIMENTO.</span></h2>
+                    <p>Em busca de transição de carreira para a área de tecnologia, estou dedicando-me intensamente ao estudo de desenvolvimento web, incluindo HTML, CSS, JavaScript e Java. Atualmente, curso o primeiro semestre de Análise e Desenvolvimento de Sistemas (ADS) e realizo cursos particulares para aprimorar minhas habilidades em Front-end e Back-end.</p>
+
+                    <p>Com experiência prévia em logística, trago comigo habilidades valiosas como organização, resolução de problemas e trabalho em equipe, que se somam à minha crescente expertise técnica.</p>
+
+                    <p>Sou pai da Geovanna, e busco contribuir para projetos inovadores, aplicando meus conhecimentos e aprendendo continuamente no dinâmico mundo da tecnologia. Estou aberto a oportunidades e colaborações! 😊</p>
+
+                    <p>Meus estudos e cursos incluem:</p>
+                    <ul>
+                        <li><strong>Lógica de Programação</strong> (SENAI Pernambuco)</li>
+                        <li><strong>Back-end Java</strong> (Santander Bootcamp 2024 - DIO)</li>
+                        <li><strong>Desenvolvimento Java com IA</strong> (DIO)</li>
+                        <li><strong>Introdução ao Git e ao GitHub</strong> (DIO)</li>
+                        <li><strong>Primeiros Passos para Desenvolvimento Web</strong> (DIO)</li>
+                        <li><strong>Aprendendo com Python</strong> (ENAP)</li>
+                    </ul>
+
+                    <p>Possuo também conhecimentos em Excel, Power BI e gestão de estoque.</p>
+
+                    <div class="btn-social">
+                        <a href="#"><button><i class="bi bi-instagram"></i></button></a>
+                        <a href="#"><button><i class="bi bi-whatsapp"></i></button></a>
+                        <a href="#"><button><i class="bi bi-linkedin"></i></button></a>
                     </div>
                 </div>
             </div>
-        </section>
-                    </div>
+        </div>
+    </section>
+    <section id="Especialidade" class="js-section especialidades">
+        <div class="container interface">
+            <h2 class="titulo">MINHAS <span>ESPECIALIDADES.</span></h2>
+            <div class="flex">
+                <div class="especialidades-box">
+                    <i class="bi bi-filetype-html"></i>
+                    <h3>Website</h3>
+                    <p>
+                        Porro forsitan scis quomodo Deus operetur? Mysteria eius alta
+                        sunt, et viae eius inscrutabiles. Sapientia eius immensurabilis
+                        est, et opera eius mirabilia in aeternum manent
+                    </p>
                 </div>
-            </section>
-        <section class="especialidades" id="Especialidade">
-            <div class="interface">
-                <h2 class="titulo">MINHAS <span>ESPECIALIDADES.</span></h2>
-                <div class="flex">
-                    <div class="especialidades-box">
-                        <i class="bi bi-filetype-html"></i>
-                        <h3>Website</h3>
-                        <p>
-                            Porro forsitan scis quomodo Deus operetur? Mysteria eius alta
-                            sunt, et viae eius inscrutabiles. Sapientia eius immensurabilis
-                            est, et opera eius mirabilia in aeternum manent
-                        </p>
-                    </div>
-                    <div class="especialidades-box">
-                        <i class="bi bi-cart"></i>
-                        <h3>Loja online</h3>
-                        <p>
-                            Porro forsitan scis quomodo Deus operetur? Mysteria eius alta
-                            sunt, et viae eius inscrutabiles. Sapientia eius immensurabilis
-                            est, et opera eius mirabilia in aeternum manent
-                        </p>
-                    </div>
-                    <div class="especialidades-box">
-                        <i class="bi bi-wordpress"></i>
-                        <h3>Blog</h3>
-                        <p>
-                            Porro forsitan scis quomodo Deus operetur? Mysteria eius alta
-                            sunt, et viae eius inscrutabiles. Sapientia eius immensurabilis
-                            est, et opera eius mirabilia in aeternum manent
-                        </p>
-                    </div>
-                    </div>
+                <div class="especialidades-box">
+                    <i class="bi bi-cart"></i>
+                    <h3>Loja online</h3>
+                    <p>
+                        Porro forsitan scis quomodo Deus operetur? Mysteria eius alta
+                        sunt, et viae eius inscrutabiles. Sapientia eius immensurabilis
+                        est, et opera eius mirabilia in aeternum manent
+                    </p>
                 </div>
-            </section>
-        <section class="sobre" id="Sobre">
-            <div class="interface">
-                <div class="flex">
-                    <div class="img-sobre">
-                        <img src="../assets/imagem/EueGeoCartoon.jpeg" alt="img-sobre" />
-                    </div><div class="txt-sobre">
-                        <h2>MUITO PRAZER,<span>SOU GLAILTON NASCIMENTO.</span></h2>
-                        <p>Olá! Sou Glailton Nascimento, um profissional em transição de carreira para a área de tecnologia. Com mais de 10 anos de experiência em logística, desenvolvi habilidades como organização, resolução de problemas e trabalho em equipe. Agora, estou focado em me tornar um desenvolvedor full-stack, estudando tecnologias como HTML, CSS, JavaScript e Java.</p>
+                <div class="especialidades-box">
+                    <i class="bi bi-wordpress"></i>
+                    <h3>Blog</h3>
+                    <p>
+                        Porro forsitan scis quomodo Deus operetur? Mysteria eius alta
+                        sunt, et viae eius inscrutabiles. Sapientia eius immensurabilis
+                        est, et opera eius mirabilia in aeternum manent
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                        <p>Recentemente, concluí cursos importantes que têm me ajudado a construir uma base sólida em programação e desenvolvimento:</p>
-                        <ul>
-                            <li><strong>Lógica de Programação</strong> (SENAI Pernambuco)</li>
-                            <li><strong>Back-end Java</strong> (Santander Bootcamp 2024 - DIO)</li>
-                            <li><strong>Desenvolvimento Java com IA</strong> (DIO)</li>
-                            <li><strong>Introdução ao Git e ao GitHub</strong> (DIO)</li>
-                            <li><strong>Primeiros Passos para Desenvolvimento Web</strong> (DIO)</li>
-                            <li><strong>Aprendendo com Python</strong> (ENAP)</li>
-                        </ul>
+    
 
-                        <p>Além disso, tenho conhecimentos em ferramentas como Excel, Power BI e gestão de estoque, que complementam minha formação técnica.</p>
-
-                        <p>Sou pai da Geovanna, uma garotinha de 5 anos que me inspira todos os dias a buscar novos desafios. Meu objetivo é contribuir para projetos inovadores e impactantes, enquanto continuo aprendendo e crescendo na área de tecnologia.</p>
-                        <p>Estou aberto a oportunidades e colaborações. Vamos conversar! 😊</p>
-                        <div class="btn-social">
-                            <a href="#"><button><i class="bi bi-instagram"></i></button></a>
-                            <a href="#"><button><i class="bi bi-whatsapp"></i></button></a>
-                            <a href="#"><button><i class="bi bi-linkedin"></i></button></a>
-                        </div>
-                    </div></div></div></section><section class="portfolio" id="Projetos">
-            <div class="interface">
-                <h2 class="titulo">MEU <span>PORTFÓLIO.</span></h2>
-                <div class="flex">
+    <section id="Projetos" class="js-section portfolio">
+        <div class="container">
+            <h2 class="titulo">MEU <span>PORTFÓLIO.</span></h2>
+            <div class="highlights">
+                <h3>Destaques</h3>
+                <div class="cards-projects flex">
                     <div class="img-port em-construcao">
                         <div class="overlay">Projeto 1</div>
                     </div>
@@ -162,8 +167,27 @@
                     <div class="img-port em-construcao">
                         <div class="overlay">Projeto 3</div>
                     </div>
-                </div></div></div></section><section class="formulario" id="Contato">
-        <div class="interface">
+                </div>
+            </div>
+            <div class="allprojects">
+                <h3>Todos os projetos</h3>
+                <div class="cards-projects flex">
+                    <div class="img-port em-construcao">
+                        <div class="overlay">Projeto 4</div>
+                    </div>
+                    <div class="img-port em-construcao">
+                        <div class="overlay">Projeto 5</div>
+                    </div>
+                    <div class="img-port em-construcao">
+                        <div class="overlay">Projeto 6</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Contato" class="js-section formulario">
+        <div class="container interface">
             <h2 class="titulo">FALA <span>COMIGO.</span></h2>
 
             <form action="">
@@ -173,32 +197,31 @@
                 <textarea name="message" id="" placeholder="Sua mensagem:" required></textarea>
                 <div class="btn-enviar"><input type="submit" value="ENVIAR"></div>
             </form>
-        </div></section></main>
+        </div>
+    </section>
 
     <footer>
         <div class="interface">
-            <div class="line-footer">
-                <div class="flex">
-                    <div class="logo-footer">
-                        <img src="../assets/imagem/novalogotransparente.png" alt="Logotipo Glailton">
-                    </div><div class="btn-social">
-                        <a href="#"><button><i class="bi bi-instagram"></i></button></a>
-                        <a href="#"><button><i class="bi bi-youtube"></i></button></a>
-                        <a href="#"><button><i class="bi bi-linkedin"></i></button></a>
-                    </div></div>
-            </div><div class="line-footer borda">
+            <div class="line-footer flex">
+                <div class="logo-footer">
+                    <img src="../assets/imagem/novalogotransparente.png" alt="Logotipo Glailton">
+                </div>
+                <div class="btn-social">
+                    <a href="#"><button><i class="bi bi-instagram"></i></button></a>
+                    <a href="#"><button><i class="bi bi-youtube"></i></button></a>
+                    <a href="#"><button><i class="bi bi-linkedin"></i></button></a>
+                </div>
+            </div>
+            <div class="line-footer borda">
                 <p><i class="bi bi-envelope-fill"></i> <a href="mailto:glailtonprogramador88@gmail.com">glailtonprogramador88@gmail.com</a></p>
-            </div></div></footer>
+            </div>
+        </div>
+    </footer>
 
-            <a href="#Inicio" id="btn-inicio-fixo">
-                        <button>
-                            <i class="bi bi-house-fill"></i> Início
-                        </button>
-                    </a>
-                <!-- test-->
-
- 
-    <script src="menu.js" defer></script>
-    <script src="email-config.js" defer></script>
+    <a href="#Inicio" id="btn-inicio-fixo" class="mostrar">
+        <button>
+            <i class="bi bi-house-fill"></i> Início
+        </button>
+    </a>
 </body>
 </html>
