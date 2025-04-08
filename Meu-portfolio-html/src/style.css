@@ -79,13 +79,50 @@ header nav ul {
 
 header nav.menu-desktop ul li {
     display: inline-block;
-    padding: 0 40px;
+    padding: 0 20px;
+}
+
+@media (min-width: 1042px) { /* Estilos para telas maiores que 1041px */
+    header>.interface {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Espaça os elementos igualmente */
+    }
+
+    .btn-contato {
+        margin-left: 20px; /* Adiciona margem à esquerda do botão Contato */
+    }
+
+    .btn-abrir-menu {
+        display: none; /* Oculta o botão de menu hambúrguer em telas grandes */
+    }
+}
+
+@media (max-width: 1041px) { /* Estilos para telas menores */
+    header>.interface {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Mantém o espaçamento entre logo e os botões/menu */
+    }
+
+    .btn-contato {
+        margin-left: auto; /* Empurra o botão para a direita */
+        margin-right: 20px; /* Ajusta a margem direita para separação */
+    }
+
+    .btn-abrir-menu {
+        position: absolute;
+        right: 20px;
+        top: 25px;
+        cursor: pointer;
+        z-index: 10; /* Garante que o menu esteja acima do overlay */
+    }
 }
 
 /* MENU MOBILE */
 .btn-abrir-menu {
     position: absolute;
-    right: 20px;
+    right: 10px;
     top: 25px;
     cursor: pointer;
 }
@@ -108,11 +145,11 @@ header nav.menu-desktop ul li {
 }
 
 .menu-mobile.abrir-menu {
-    width: 70%;
+    width: 80%;
 }
 
 .menu-mobile .btn-fechar {
-    padding: 20px 5%;
+    padding: 15px 20%;
 }
 
 .menu-mobile .btn-fechar i {
@@ -121,14 +158,14 @@ header nav.menu-desktop ul li {
 }
 
 .menu-mobile nav ul {
-    text-align: right;
+    text-align:right;
 }
 
 .menu-mobile nav ul a {
     color: #fff;
     font-size: 20px;
     font-weight: 300;
-    padding: 15px 9%;
+    padding: 15px 5%;
     display: block;
     transition: background-color 0.2s ease;
 }
@@ -188,7 +225,7 @@ section.topo-do-site.flex {
     overflow: hidden;
     margin-top: 20px;
     color: #fff; /* Garante que a profissão seja branca por padrão */
-    border-right: .15em solid #00ff08; /* Mantém a barra de digitação */
+    border-right: .15em solid #0; /* Mantém a barra de digitação */
 }
 
 .topo-do-site .txt-topo-site .profissao span {
@@ -202,6 +239,8 @@ section.topo-do-site.flex {
 .topo-do-site .txt-topo-site .profissao-texto {
     display: inline-block;
     animation: escrever 3s steps(30, end) infinite; /* Aplica a animação de escrever em loop */
+    white-space: nowrap; /* Garante que o texto fique em uma linha */
+    overflow: hidden;    /* ADICIONE ESTA LINHA */
 }
 
 .topo-do-site .txt-topo-site .cursor {
@@ -237,6 +276,10 @@ section.topo-do-site.flex {
     100% {
         top: 35px;
     }
+}
+
+.topo-do-site .txt-topo-site .saudacao .saudacao-pontos {
+    color: #00ff08;
 }
 
 /* ESPECIALIDADES */
@@ -548,3 +591,6 @@ footer .logo-footer img {
         align-items: center;
         text-align: center;
     }
+
+    /* Adicione aqui outros estilos específicos para telas menores que 1041px */
+}
