@@ -35,12 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
     btnFecharMobile.addEventListener('click', fecharMenuMobile);
     overlayMenu.addEventListener('click', fecharMenuMobile);
 
-    // --- Código para o efeito de digitação (MODIFICADO) ---
+    // --- Código para o efeito de digitação ---
     const textoDigitando = document.querySelector('.profissao-digitando');
-    const textoCompleto = "Olá, eu sou Glailton Nascimento, Desenvolvedor Front-End e Back-end."; // Texto completo
+    const textoCompleto = "Olá, eu sou Glailton Nascimento, Desenvolvedor Front-End e Back-end.";
     textoDigitando.textContent = "";
     let index = 0;
-    const velocidadeDigitacao = 100; // Ajustei a velocidade para um texto maior
+    const velocidadeDigitacao = 100;
 
     function digitarTexto() {
         if (index < textoCompleto.length) {
@@ -54,4 +54,24 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(digitarTexto, 500);
         digitarTexto();
     }
+
+    // --- Código para controlar a rolagem de imagens e o overlay dos projetos ---
+    const multiImageProjects = document.querySelectorAll('.img-port.multi-image');
+
+    multiImageProjects.forEach(project => {
+        const slider = project.querySelector('.image-slider');
+        const overlay = project.querySelector('.overlay');
+
+        if (slider) {
+            project.addEventListener('mouseenter', () => {
+                slider.style.animationPlayState = 'paused'; // Pausa a animação
+                overlay.style.opacity = '1'; // Mostra o overlay
+            });
+
+            project.addEventListener('mouseleave', () => {
+                slider.style.animationPlayState = 'running'; // Reinicia a animação
+                overlay.style.opacity = '0'; // Esconde o overlay
+            });
+        }
+    });
 });

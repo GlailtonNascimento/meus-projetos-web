@@ -567,45 +567,120 @@ section.portfolio .flex {
     flex-wrap: wrap;
 }
 
+/* Estilos base para cada item de projeto (imagem e overlay) */
 .img-port {
     width: 300px;
     height: 350px;
     background-color: #2a2a2a;
     border-radius: 1rem;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+    overflow: hidden; /* Garante que o conteúdo interno não vaze da borda */
+    position: relative; /* Necessário para posicionar o overlay */
+    cursor: pointer; /* Indica que o elemento é clicável */
+    transition: transform 0.3s ease; /* Transição suave para o efeito de "scale" no hover */
 }
 
+/* Efeito de leve aumento de escala ao passar o mouse no projeto */
 .img-port:hover {
     transform: scale(1.05);
 }
 
+/* Estilos para a imagem dentro do projeto */
 .img-port img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: opacity 0.3s ease;
+    object-fit: cover; /* A imagem cobre todo o espaço sem distorcer */
+    display: block; /* Remove espaços extras abaixo da imagem */
+    transition: opacity 0.3s ease; /* Transição suave para possível efeito de opacidade */
 }
 
+/* Estilos base para a camada de overlay que aparece ao passar o mouse */
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo preto semi-transparente */
     border-radius: 1rem;
-    display: flex;
+    display: flex; /* Para centralizar o conteúdo internamente */
     align-items: center;
     justify-content: center;
     font-size: 2rem;
     font-weight: 500;
     color: #F9F9F9;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.3s ease; /* Transição suave para o efeito de aparecer/desaparecer */
+    text-align: center;
+    padding: 1rem;
+    font-family: 'Poppins', sans-serif;
+    flex-direction: column; /* Alinha os itens internos (título, texto, links) verticalmente */
+}
+
+/* Faz o overlay aparecer ao passar o mouse no projeto */
+.img-port:hover .overlay {
+    opacity: 1;
+}
+
+/* Estilos para o texto de descrição dentro do overlay */
+.img-port .overlay p {
+    font-size: 1.4rem;
+    color: #F9F9F9;
+    margin-bottom: 1rem;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Estilos específicos para projetos com múltiplas imagens (efeito de rolagem) */
+.img-port.multi-image {
+    overflow: hidden; /* Esconde as imagens fora da área visível */
+    position: relative; /* Para posicionar o overlay corretamente */
+}
+
+/* Container das imagens para o efeito de rolagem */
+.img-port.multi-image .image-slider {
+    display: flex; /* Coloca as imagens lado a lado horizontalmente */
+    animation: slide 5s infinite linear; /* Aplica a animação de rolagem */
+    width: calc(100% * 2); /* Largura total do container de imagens (ajuste conforme o número) */
+}
+
+/* Estilos para cada imagem dentro do slider de rolagem */
+.img-port.multi-image .image-slider img {
+    width: calc(100% / 2); /* Largura de cada imagem (ajuste conforme o número) */
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra o espaço */
+}
+
+/* Animação de rolagem horizontal das imagens */
+@keyframes slide {
+    0% { transform: translateX(0%); }
+    33.33% { transform: translateX(0%); } /* Tempo da primeira imagem */
+    66.66% { transform: translateX(-100%); } /* Move para a segunda imagem */
+    100% { transform: translateX(-100%); } /* Mantém a segunda imagem no final do ciclo */
+
+}
+
+/* Estilos específicos para o overlay dos projetos em construção (se precisar) */
+.img-port.em-construcao .overlay h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #F9F9F9;
+}
+
+/* Estilos para o overlay (já devem existir, mas verifique) */
+.img-port .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #F9F9F9;
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.3s ease-in-out;
     text-align: center;
     padding: 1rem;
     font-family: 'Poppins', sans-serif;
@@ -613,6 +688,20 @@ section.portfolio .flex {
 
 .img-port:hover .overlay {
     opacity: 1;
+}
+
+/* Estilos específicos para o overlay dos projetos em construção (se precisar) */
+.img-port.em-construcao .overlay h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #F9F9F9;
+}
+/* Estilos para o container dos cards de projetos (layout em grid) */
+.cards-projects {
+    display: grid; /* Ativa o CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cria colunas responsivas de no mínimo 300px */
+    gap: 20px; /* Espaçamento entre os projetos */
+    margin-top: 2rem; /* Se precisar de espaço acima dos projetos */
 }
 
 /* FORMULÁRIO (mantendo com ajustes de cor) */
