@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Código para o efeito de digitação (MODIFICADO) ---
     const textoDigitando = document.querySelector('.profissao-digitando');
-    const textoCompleto = "Olá, eu sou Glailton Nascimento, Desenvolvedor Front-End e Back-end"; // Texto completo
+    const textoCompleto = "Olá, eu sou Glailton Nascimento, Desenvolvedor Front-End e Back-end."; // Texto completo
     textoDigitando.textContent = "";
     let index = 0;
     const velocidadeDigitacao = 100; // Ajustei a velocidade para um texto maior
