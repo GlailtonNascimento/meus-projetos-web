@@ -1,90 +1,57 @@
-const btnAbrirMenu = document.getElementById('btn-menu');
-const menuMobile = document.getElementById('menu-mobile');
-const btnFecharMenu = menuMobile ? menuMobile.querySelector('.btn-fechar i') : null;
-const overlayMenu = document.querySelector('.overlay-menu');
-const btnInicioFixo = document.getElementById('btn-inicio-fixo');
-const menuPrincipal = document.getElementById('menuPrincipal');
-const linksMenuMobile = menuMobile ? menuMobile.querySelectorAll('nav ul a') : []; // Seleciona todos os links do menu mobile
+document.addEventListener('DOMContentLoaded', () => {
+    const btnMenu = document.getElementById('btn-menu');
+    const btnFecharMobile = document.querySelector('#menu-mobile .btn-fechar i');
+    const menuMobile = document.getElementById('menu-mobile');
+    const overlayMenu = document.querySelector('.overlay-menu');
+    const body = document.body;
+    const menuIcon = document.querySelector('.menu > .ri-menu-line');
+    const closeIcon = document.querySelector('.menu > .ri-close-line');
 
-function fecharMenu() {
-    if (menuMobile) {
-        menuMobile.classList.remove('abrir-menu');
-    }
-    if (overlayMenu) {
-        overlayMenu.style.display = 'none';
-    }
-}
-
-if (btnAbrirMenu && menuMobile) {
-    btnAbrirMenu.addEventListener('click', () => {
+    function abrirMenuMobile() {
         menuMobile.classList.add('abrir-menu');
-        if (overlayMenu) {
-            overlayMenu.style.display = 'block';
+        overlayMenu.classList.add('abrir-overlay');
+        body.classList.add('menu-aberto');
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+        document.addEventListener('keydown', fecharComEsc);
+    }
+
+    function fecharMenuMobile() {
+        menuMobile.classList.remove('abrir-menu');
+        overlayMenu.classList.remove('abrir-overlay');
+        body.classList.remove('menu-aberto');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        document.removeEventListener('keydown', fecharComEsc);
+    }
+
+    function fecharComEsc(event) {
+        if (event.key === 'Escape' && menuMobile.classList.contains('abrir-menu')) {
+            fecharMenuMobile();
         }
-    });
-}
+    }
 
-if (btnFecharMenu && menuMobile) {
-    btnFecharMenu.addEventListener('click', fecharMenu);
-}
+    btnMenu.addEventListener('click', abrirMenuMobile);
+    btnFecharMobile.addEventListener('click', fecharMenuMobile);
+    overlayMenu.addEventListener('click', fecharMenuMobile);
 
-if (overlayMenu && menuMobile) {
-    overlayMenu.addEventListener('click', fecharMenu);
-}
+    // --- Código para o efeito de digitação (MODIFICADO) ---
+    const textoDigitando = document.querySelector('.profissao-digitando');
+    const textoCompleto = "Olá, eu sou Glailton Nascimento, Desenvolvedor Front-End e Back-end"; // Texto completo
+    textoDigitando.textContent = "";
+    let index = 0;
+    const velocidadeDigitacao = 100; // Ajustei a velocidade para um texto maior
 
-// Adicionando o event listener para a tecla Esc
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' || event.keyCode === 27) {
-        fecharMenu();
+    function digitarTexto() {
+        if (index < textoCompleto.length) {
+            textoDigitando.textContent += textoCompleto.charAt(index);
+            index++;
+            setTimeout(digitarTexto, velocidadeDigitacao);
+        }
+    }
+
+    if (textoDigitando) {
+        setTimeout(digitarTexto, 500);
+        digitarTexto();
     }
 });
-
-// Modificando o comportamento do botão "Início" fixo
-if (btnInicioFixo && menuPrincipal) {
-    btnInicioFixo.addEventListener('click', (event) => {
-        event.preventDefault(); // Impede o comportamento padrão do link (#Inicio)
-
-        const menuOffsetTop = menuPrincipal.offsetTop;
-
-        window.scrollTo({
-            top: menuOffsetTop,
-            behavior: 'smooth'
-        });
-    });
-}
-
-// ADICIONANDO A LÓGICA PARA ABRIR E FECHAR O MENU AO CLICAR NOS LINKS
-linksMenuMobile.forEach(link => {
-    link.addEventListener('click', (event) => {
-        event.preventDefault(); // Impede o comportamento padrão do link (ir direto para a âncora)
-
-        const targetId = link.getAttribute('href'); // Obtém o ID da seção alvo
-        const targetElement = document.querySelector(targetId); // Seleciona a seção alvo
-
-        fecharMenu(); // Fecha o menu ao clicar no link
-
-        if (targetElement) {
-            targetElement.scrollIntoView({ // Rola suavemente até a seção
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Lógica para abrir o menu automaticamente em telas menores (mantendo, mas lembre-se da UX)
-function abrirMenuAutomaticamente() {
-    if (window.innerWidth <= 1041) {
-        if (menuMobile && overlayMenu && !menuMobile.classList.contains('abrir-menu')) {
-            menuMobile.classList.add('abrir-menu');
-            overlayMenu.style.display = 'block';
-        }
-    } else {
-        fecharMenu(); // Garante que o menu esteja fechado em telas maiores
-    }
-}
-
-// Chame a função ao carregar a página
-window.addEventListener('load', abrirMenuAutomaticamente);
-
-// Chame a função ao redimensionar a janela (com cuidado para não ser intrusivo em desktop)
-window.addEventListener('resize', abrirMenuAutomaticamente);
