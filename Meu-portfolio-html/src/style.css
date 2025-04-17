@@ -560,12 +560,12 @@ section.portfolio>.interface h2.titulo {
     margin-bottom: 4rem;
 }
 
-section.portfolio .flex {
+/*section.portfolio .flex {
     justify-content: center;
     margin-top: 2rem;
     gap: 2rem;
     flex-wrap: wrap;
-}
+}*/
 
 /* Estilos base para cada item de projeto (imagem e overlay) */
 .img-port {
@@ -639,26 +639,45 @@ section.portfolio .flex {
 /* Container das imagens para o efeito de rolagem */
 .img-port.multi-image .image-slider {
     display: flex; /* Coloca as imagens lado a lado horizontalmente */
-    animation: slide 5s infinite linear; /* Aplica a animação de rolagem */
-    width: calc(100% * 2); /* Largura total do container de imagens (ajuste conforme o número) */
+    /*animation: slide 10s infinite linear; /*Aplica a animação de rolagem em loop */
+    width: calc(600px * 2); /* Largura total do container de imagens */
+    white-space: nowrap; /* Garante que as imagens fiquem em linha horizontal */
+    width: fit-content; /* A largura se ajusta ao conteúdo */
+    animation: slide-duas-imagens 9s infinite linear;
+    min-height: 100%;
 }
 
 /* Estilos para cada imagem dentro do slider de rolagem */
 .img-port.multi-image .image-slider img {
-    width: calc(100% / 2); /* Largura de cada imagem (ajuste conforme o número) */
+    width: 300px; /* Largura de cada imagem igual à largura do .img-port */
     height: 100%;
     object-fit: cover; /* Garante que a imagem cubra o espaço */
+    display: block; /* Remove espaços extras abaixo da imagem */
 }
 
 /* Animação de rolagem horizontal das imagens */
 @keyframes slide {
-    0% { transform: translateX(0%); }
-    33.33% { transform: translateX(0%); } /* Tempo da primeira imagem */
-    66.66% { transform: translateX(-100%); } /* Move para a segunda imagem */
-    100% { transform: translateX(-100%); } /* Mantém a segunda imagem no final do ciclo */
-
+    0% { transform: translateX(0); } /* Primeira imagem visível */
+    50% { transform: translateX(0); } /* Mantém a primeira imagem por um tempo */
+    100% { transform: translateX(-300px); } /* Move para a segunda imagem (largura de 1 projeto) */
 }
 
+/* Animação de rolagem para 2 imagens */
+@keyframes slide-duas-imagens {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(0); }
+    100% { transform: translateX(-300px); }
+}
+
+/* Animação de rolagem para 3 imagens */
+@keyframes slide-tres-imagens {
+    0% { transform: translateX(0); }
+    33.33% { transform: translateX(0); }
+    66.66% { transform: translateX(-300px); }
+    100% { transform: translateX(-600px); }
+}
+
+/* Adicione mais @keyframes conforme a necessidade (slide-quatro-imagens, etc.) */
 /* Estilos específicos para o overlay dos projetos em construção (se precisar) */
 .img-port.em-construcao .overlay h3 {
     font-size: 2rem;
@@ -693,15 +712,33 @@ section.portfolio .flex {
 /* Estilos específicos para o overlay dos projetos em construção (se precisar) */
 .img-port.em-construcao .overlay h3 {
     font-size: 2rem;
-    font-weight: 500;
+    font-weight: 700;
     color: #F9F9F9;
 }
 /* Estilos para o container dos cards de projetos (layout em grid) */
 .cards-projects {
-    display: grid; /* Ativa o CSS Grid */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cria colunas responsivas de no mínimo 300px */
-    gap: 20px; /* Espaçamento entre os projetos */
-    margin-top: 2rem; /* Se precisar de espaço acima dos projetos */
+    display: grid; /* Ativa o layout em grid */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cria colunas responsivas com largura mínima de 300px */
+    gap: 20px; /* Espaçamento entre os projetos (linhas e colunas) */
+    margin-top: 2rem; /* Espaçamento superior da seção de projetos */
+}
+
+.cards-projects .img-port {
+    /* Seus estilos para cada item do projeto (largura, altura, etc.) */
+    /* Por exemplo: */
+    width: 100%; /* Para que cada projeto ocupe a largura da sua célula no grid */
+    height: auto; /* A altura se ajusta proporcionalmente */
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Se você tiver estilos específicos para a classe 'flex' dentro de 'cards-projects', verifique também */
+.cards-projects.flex {
+    /* Se você ainda tiver 'flex' aqui, remova ou ajuste conforme necessário, pois o pai já é 'grid' */
+    display: grid; /* Garante que continue sendo grid */
 }
 
 /* FORMULÁRIO (mantendo com ajustes de cor) */
