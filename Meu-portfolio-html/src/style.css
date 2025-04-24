@@ -569,9 +569,9 @@ section.portfolio>.interface h2.titulo {
 
 /* Estilos base para cada item de projeto (imagem e overlay) */
 .img-port {
-    width: 300px;
-    height: 350px;
-    background-color: #2a2a2a;
+    width: 500px;
+    height: 500px;
+    background-color: #0a0116;
     border-radius: 1rem;
     overflow: hidden; /* Garante que o conteúdo interno não vaze da borda */
     position: relative; /* Necessário para posicionar o overlay */
@@ -588,7 +588,7 @@ section.portfolio>.interface h2.titulo {
 .img-port img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* A imagem cobre todo o espaço sem distorcer */
+    object-fit: cover; /* Garante que a imagem inteira seja visível */
     display: block; /* Remove espaços extras abaixo da imagem */
     transition: opacity 0.3s ease; /* Transição suave para possível efeito de opacidade */
 }
@@ -630,6 +630,7 @@ section.portfolio>.interface h2.titulo {
     line-height: 1.6;
 }
 
+
 /* Estilos específicos para projetos com múltiplas imagens (efeito de rolagem) */
 .img-port.multi-image {
     overflow: hidden; /* Esconde as imagens fora da área visível */
@@ -638,46 +639,87 @@ section.portfolio>.interface h2.titulo {
 
 /* Container das imagens para o efeito de rolagem */
 .img-port.multi-image .image-slider {
-    display: flex; /* Coloca as imagens lado a lado horizontalmente */
-    /*animation: slide 10s infinite linear; /*Aplica a animação de rolagem em loop */
-    width: calc(600px * 2); /* Largura total do container de imagens */
-    white-space: nowrap; /* Garante que as imagens fiquem em linha horizontal */
-    width: fit-content; /* A largura se ajusta ao conteúdo */
-    animation: slide-duas-imagens 9s infinite linear;
-    min-height: 100%;
+    display: flex; /* Usar flex para controlar o espaçamento */
+    white-space: nowrap;
+    /*width: 100%; /* Largura igual à do .img-port */
+    /*height: 100%; /* Altura igual à do .img-port */
+    overflow-x: auto; /* Adicionar barra de rolagem horizontal para visualização */
+    scroll-snap-type: x mandatory; /* Forçar o "snap" para cada imagem */
+    -webkit-overflow-scrolling: touch; /* Para rolagem suave em iOS */
+    /*animation: none !important; /* Remover as animações de "slide" automáticas por enquanto */
+    width: calc(400px * 2 + 20px); /* Largura para 2 imagens (largura da imagem * número + margem * (número - 1)) */
+    height: 100%;
+    animation: slide-loop-duas-imagens 10s infinite linear; /* Animação para 2 imagens */
 }
 
 /* Estilos para cada imagem dentro do slider de rolagem */
 .img-port.multi-image .image-slider img {
-    width: 300px; /* Largura de cada imagem igual à largura do .img-port */
+    width: 400px; /* Cada imagem ocupa a largura total do .img-port */
     height: 100%;
-    object-fit: cover; /* Garante que a imagem cubra o espaço */
-    display: block; /* Remove espaços extras abaixo da imagem */
+    object-fit: cover; /* Para preencher o espaço */
+    display: block; /* Evitar espaços extras */
+    margin-right: 20px; /* Adicionar espaço entre as imagens (ajuste o valor conforme necessário) */
+    scroll-snap-align: start; /* Alinhar o início de cada imagem ao container */
 }
 
+/* Remover a margem extra da última imagem */
+.img-port.multi-image .image-slider img:last-child {
+    margin-right: 0;
+}
+
+
+/* Aplicação das animações com base nas classes específicas */
+
+.img-port.multi-image .image-slider {
+    /* Outros estilos... */
+    animation: slide-loop-duas-imagens 9s infinite linear; /* Animação para 2 imagens */
+}
+/*  
+.projeto-duas-imagens .image-slider {
+    animation: slide-duas-imagens 9s infinite linear; 
+}
+
+.projeto-tres-imagens .image-slider {
+    animation: slide-tres-imagens 12s infinite linear;
+}
+
+.projeto-quatro-imagens .image-slider {
+    animation: slide-quatro-imagens 16s infinite linear; 
+}*/
+
+/* Animações @keyframes (mantive todas para não perder nenhuma) */
 /* Animação de rolagem horizontal das imagens */
+/* Animação de rolagem horizontal das imagens - Uma por vez (genérica) */
 @keyframes slide {
-    0% { transform: translateX(0); } /* Primeira imagem visível */
-    50% { transform: translateX(0); } /* Mantém a primeira imagem por um tempo */
-    100% { transform: translateX(-300px); } /* Move para a segunda imagem (largura de 1 projeto) */
+    0% { transform: translateX(0%); }       /* Primeira imagem visível */
+    /* Ajuste os pontos intermediários conforme o tempo desejado para cada imagem */
+    50% { transform: translateX(0%); }      /* Mantém a primeira imagem */
+    100% { transform: translateX(-100%); } /* Move para a próxima imagem */
 }
 
-/* Animação de rolagem para 2 imagens */
+/* Animação de rolagem para 2 imagens - Uma por vez */
 @keyframes slide-duas-imagens {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(0); }
-    100% { transform: translateX(-300px); }
+    0% { transform: translateX(0%); }   /* Mostra a primeira imagem */
+    50% { transform: translateX(0%); }  /* Mantém a primeira imagem por um tempo */
+    100% { transform: translateX(-100%); } /* Move para a segunda imagem */
 }
-
-/* Animação de rolagem para 3 imagens */
+/* Animação de rolagem para 3 imagens - Uma por vez */
 @keyframes slide-tres-imagens {
-    0% { transform: translateX(0); }
-    33.33% { transform: translateX(0); }
-    66.66% { transform: translateX(-300px); }
-    100% { transform: translateX(-600px); }
+    0% { transform: translateX(0%); }
+    33.33% { transform: translateX(0%); }
+    66.66% { transform: translateX(-100%); }
+    100% { transform: translateX(-200%); }
+}
+/* Animação de rolagem para 4 imagens - Uma por vez */
+@keyframes slide-quatro-imagens {
+    0% { transform: translateX(0%); }
+    25% { transform: translateX(0%); }
+    50% { transform: translateX(-100%); }
+    75% { transform: translateX(-100%); }
+    100% { transform: translateX(-200%); } /* E assim por diante */
 }
 
-/* Adicione mais @keyframes conforme a necessidade (slide-quatro-imagens, etc.) */
+
 /* Estilos específicos para o overlay dos projetos em construção (se precisar) */
 .img-port.em-construcao .overlay h3 {
     font-size: 2rem;
