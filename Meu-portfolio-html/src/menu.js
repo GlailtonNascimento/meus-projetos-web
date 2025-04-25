@@ -90,4 +90,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- NOVO CÓDIGO PARA "VER MAIS" NA SEÇÃO "SOBRE" ---
+    const verMaisSobreBtn = document.getElementById('ver-mais-sobre');
+    const infoCompletaDiv = document.querySelector('.info-completa');
+
+    if (verMaisSobreBtn && infoCompletaDiv) {
+        verMaisSobreBtn.addEventListener('click', function() {
+            infoCompletaDiv.classList.remove('hidden');
+            this.style.display = 'none'; // Esconde o botão "Ver Mais"
+        });
+    }
 });

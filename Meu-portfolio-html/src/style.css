@@ -1140,15 +1140,15 @@ header a {
 
 /* Estilo padrão para cada item de especialidade */
 .especialidade-item {
-    background-color: #111111; /* Cor de fundo inicial */
-    color: #e7e0e0; /* Cor do texto inicial */
+    background-color: #111111;
+    color: #e7e0e0;
     padding: 20px;
     border-radius: 10px;
-    display: flex;
-    justify-content: space-between; /* Espaço entre texto e ícone */
-    align-items: center; /* Alinhamento vertical */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
-    margin-bottom: 15px; /* Adicione um pouco de espaço entre os itens, se desejar */
+    display: flex; /* Mantenha o display flex para o layout do item */
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 15px;
 }
 
 /* Estilo ao passar o mouse em cada item de especialidade */
@@ -1158,20 +1158,74 @@ header a {
     background-color: #4d0377; /* Ou uma cor ligeiramente diferente para destacar */
 }
 
+.texto-especialidade {
+    flex-grow: 1; /* Permite que o texto cresça e ocupe o espaço */
+    margin-right: 20px; /* Adicione espaço entre o texto e o ícone */
+}
+
 .texto-especialidade h3 {
     margin-top: 0;
     color: #06e99d; /* Cor primária para o título */
 }
 
 .icone-especialidade {
-    font-size: 3em; /* Tamanho dos ícones */
+    width: 255px; /* Defina a largura desejada para o container do ícone */
+    height: 255px; /* Defina a altura desejada para o container do ícone */
+    font-size: 3em; /* Tamanho dos ícones (isso pode estar afetando indiretamente) */
     color: #0c0000; /* Cor primária para os ícones */
     margin-left: 20px; /* Espaçamento à esquerda dos ícones */
+    display: flex; /* Adicione isso para controlar o alinhamento da imagem */
+    align-items: center; /* Alinha a imagem verticalmente ao centro do div */
+    justify-content: center; /* Alinha a imagem horizontalmente ao centro do div */
+    overflow: hidden; /* Garante que a imagem não vaze se for maior */
+    flex-shrink: 0; /* Impede que o container do ícone encolha */
+}
+
+/* Aplica o mesmo estilo a todas as imagens dentro de .icone-especialidade */
+.icone-especialidade img {
+    width: 100%; /* Faz a imagem ocupar a largura do container .icone-especialidade */
+    height: 100%; /* Faz a imagem ocupar a altura do container .icone-especialidade */
+    object-fit: contain; /* Garante que a imagem inteira caiba (com espaços se necessário) */
+}
+
+/* Estilo específico para agrupar ícones (HTML, CSS, JS) */
+.icone-especialidade i + i {
+    margin-left: 0.2em; /* Pequeno espaço entre os ícones agrupados */
 }
 
 /* Estilos para os ícones agrupados (HTML, CSS, JS) */
 .icone-especialidade i + i {
     margin-left: 0.2em; /* Pequeno espaço entre os ícones agrupados */
+}
+
+.certificacao-unica {
+    margin-top: 1.5rem;
+    text-align: center; /* Centraliza a imagem e a legenda */
+}
+
+.certificacao-unica a {
+    text-decoration: none; /* Remove o sublinhado do link */
+    color: inherit; /* Herda a cor do texto do pai (para não ter cor de link padrão) */
+    display: inline-block; /* Permite que a imagem e a legenda fiquem em bloco, mas não ocupem toda a largura */
+}
+
+.certificacao-unica img {
+    max-width: 200px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    border-radius: 5px; /* Adiciona bordas arredondadas (opcional) */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave (opcional) */
+    transition: transform 0.3s ease; /* Adiciona uma transição suave para o efeito de hover */
+}
+
+.certificacao-unica img:hover {
+    transform: scale(1.05); /* Aumenta um pouco a imagem ao passar o mouse (opcional) */
+}
+
+.legenda-certificacao {
+    font-size: 0.9rem;
+    color: #777; /* Cor cinza para a legenda */
+    margin-top: 0.5rem; /* Espaçamento entre a imagem e a legenda */
+    display: block; /* Faz a legenda ocupar toda a largura disponível */
 }
 
 /* Ajuste para telas menores (opcional) */
@@ -1185,4 +1239,102 @@ header a {
         margin-top: 15px;
         font-size: 2.5em;
     }
+}
+
+/* Estilos para a seção SOBRE */
+.sobre .flex {
+    display: flex; /* Garante que os itens fiquem lado a lado */
+    align-items: center; /* Alinha verticalmente os itens (imagem e texto) */
+    gap: 30px; /* Espaçamento entre a imagem e o texto (ajuste conforme necessário) */
+}
+
+.img-sobre {
+    flex-shrink: 0; /* Impede que a imagem encolha */
+    width: auto; /* Permite que a largura da imagem se ajuste ao seu conteúdo */
+    max-width: 350px; /* Defina uma largura máxima para a imagem (ajuste conforme necessário) */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 5px; /* Adiciona bordas arredondadas (opcional) */
+}
+
+.img-sobre img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.txt-sobre {
+    flex-grow: 1; /* Permite que o texto ocupe o espaço restante */
+    min-width: 0; /* Importante para que o flex-grow funcione corretamente com textos longos */
+}
+
+.txt-sobre h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    /* white-space: nowrap; /* Remova ou adicione conforme preferir a quebra do título */
+}
+
+.txt-sobre p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.txt-sobre ul {
+    margin-left: 20px;
+    margin-bottom: 1rem;
+}
+
+.txt-sobre li {
+    margin-bottom: 0.5rem;
+}
+
+.info-completa {
+    margin-top: 1rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.ver-mais-btn {
+    background-color: #1a1a1a;
+    color: #8257E6;
+    border: 1px solid #8257E6;
+    padding: 0.8rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+.ver-mais-btn:hover {
+    background-color: #8257E6;
+    color: #F9F9F9;
+    transform: scale(1.05);
+}
+
+.certificacao-botao {
+    margin-top: 1rem;
+    text-align: left; /* Alinhe o botão à esquerda */
+}
+
+.ver-certificacoes-btn {
+    background-color: #8257E6; /* Cor primária */
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+}
+
+.ver-certificacoes-btn:hover {
+    background-color: #30098a; /* Cor mais escura no hover */
+    transform: scale(1.05);
 }
