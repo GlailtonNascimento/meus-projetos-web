@@ -74,4 +74,20 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+    // --- NOVO CÓDIGO PARA "VER MAIS ESPECIALIDADES" (SEÇÃO INTEIRA) ---
+    const verMaisSecaoBtn = document.getElementById('ver-mais-secao');
+    const especialidadesFlex = document.querySelector('.especialidades .flex');
+
+    if (verMaisSecaoBtn && especialidadesFlex) {
+        verMaisSecaoBtn.addEventListener('click', function() {
+            especialidadesFlex.classList.toggle('hidden');
+
+            if (!especialidadesFlex.classList.contains('hidden')) {
+                this.textContent = 'Ver Menos Especialidades';
+            } else {
+                this.textContent = 'Ver Mais Especialidades';
+            }
+        });
+    }
 });
