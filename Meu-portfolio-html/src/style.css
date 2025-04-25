@@ -451,13 +451,21 @@ section.especialidades .flex {
 
 /* SOBRE (mantendo com ajustes de cor e layout) */
 section.sobre {
-    padding: 8rem 4%;
+    padding: 4rem 4%;
+}
+
+section.sobre .container.interface {
+    display: flex;
+    flex-direction: column; /* Alinha os itens verticalmente */
+    justify-content: flex-start; /* Alinha os itens ao topo do container */
+    align-items: flex-start; /* Alinha os itens à esquerda do container */
 }
 
 section.sobre .flex {
-    align-items: center;
+    align-items: flex-start; /* Alinha os itens ao topo */
     gap: 4rem;
     flex-wrap: wrap;
+    order: 1; /* Garante que a div .flex venha depois da imagem em telas menores */
 }
 
 .sobre .txt-sobre {
@@ -491,8 +499,19 @@ section.sobre .flex {
 }
 
 .sobre .btn-social {
-    margin-top: 2rem;
-    text-align: left;
+    margin-top: 1rem;
+    text-align: left; /* Mantenha o alinhamento à esquerda para o container */
+    display: flex; /* Adicione flexbox para alinhar os botões/links em linha */
+    align-items: center; /* Opcional: alinha os itens verticalmente ao centro */
+    gap: 1rem; /* Espaçamento entre os botões/links dos ícones */
+    order: 2; /* Garante que a div .btn-social venha por último */
+    width: 100%; /* Ocupa a largura total */
+}
+
+#ver-mais-sobre {
+    /* Outros estilos do botão... */
+    margin-bottom: 0; /* Remove a margem inferior */
+    /* Ou um valor menor, como margin-bottom: 0.5rem; */
 }
 
 .btn-social button {
@@ -503,9 +522,12 @@ section.sobre .flex {
     background-color: transparent;
     font-size: 2.2rem;
     cursor: pointer;
-    margin-right: 1rem;
     transition: transform 0.3s ease, color 0.3s ease;
     color: #828282;
+}
+
+.btn-social a { /* Aplique o flex diretamente aos links */
+    display: inline-block; /* Permite definir largura/altura e mantém em linha */
 }
 
 .btn-social button i {
@@ -526,6 +548,7 @@ section.sobre .flex {
     border-radius: 1rem;
     max-width: 400px;
     min-width: 250px;
+    order: 0; /* Garante que a imagem venha primeiro em telas menores */
 }
 
 .sobre .img-sobre img {
@@ -547,9 +570,23 @@ section.sobre .flex {
         align-items: center; /* Alinha verticalmente ao centro */
         gap: 4rem; /* Espaçamento entre texto e imagem */
         flex-direction: row; /* Garante que os itens fiquem em linha */
+        order: 0; /* Em telas maiores, a div .flex volta a ser a primeira */
+    }
+    .sobre .img-sobre {
+        order: 0; /* Garante a ordem correta em telas maiores */
+    }
+    .sobre .txt-sobre {
+        order: 1;
+    }
+    .sobre .btn-social {
+        order: 1; /* Em telas maiores, os ícones vêm depois da div .flex */
+        width: auto; /* A largura se ajusta ao conteúdo */
     }
 }
 
+.info-completa:not(.hidden) {
+    display: block; /* Garante que a div ocupe o espaço como um bloco */
+}
 /* PORTFÓLIO (mantendo com ajustes de cor e layout) */
 section.portfolio {
     padding: 8rem 4%;
@@ -1336,5 +1373,26 @@ header a {
 
 .ver-certificacoes-btn:hover {
     background-color: #30098a; /* Cor mais escura no hover */
+    transform: scale(1.05);
+}
+
+.ver-menos-btn {
+    background-color: #1a1a1a;
+    color: #8257E6;
+    border: 1px solid #8257E6;
+    padding: 0.8rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+.ver-menos-btn:hover {
+    background-color: #8257E6;
+    color: #F9F9F9;
     transform: scale(1.05);
 }

@@ -90,15 +90,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+// --- CÓDIGO PARA "VER MAIS" E "VER MENOS" NA SEÇÃO "SOBRE" (AJUSTADO) ---
+const verMaisSobreBtn = document.getElementById('ver-mais-sobre');
+const verMenosSobreBtn = document.getElementById('ver-menos-sobre');
+const estudosECertificacoes = document.querySelector('.info-completa'); // Vamos usar uma classe para agrupar o que expandir
 
-    // --- NOVO CÓDIGO PARA "VER MAIS" NA SEÇÃO "SOBRE" ---
-    const verMaisSobreBtn = document.getElementById('ver-mais-sobre');
-    const infoCompletaDiv = document.querySelector('.info-completa');
+if (verMaisSobreBtn && verMenosSobreBtn && estudosECertificacoes) {
+    // Inicialmente, esconde o conteúdo extra e mostra o Ver Mais
+    estudosECertificacoes.classList.add('hidden');
+    verMaisSobreBtn.style.display = 'inline-block';
+    verMenosSobreBtn.style.display = 'none';
 
-    if (verMaisSobreBtn && infoCompletaDiv) {
-        verMaisSobreBtn.addEventListener('click', function() {
-            infoCompletaDiv.classList.remove('hidden');
-            this.style.display = 'none'; // Esconde o botão "Ver Mais"
-        });
-    }
+    verMaisSobreBtn.addEventListener('click', function() {
+        estudosECertificacoes.classList.remove('hidden');
+        this.style.display = 'none'; // Esconde o botão "Ver Mais"
+        verMenosSobreBtn.style.display = 'inline-block'; // Mostra o botão "Ver Menos"
+    });
+
+    verMenosSobreBtn.addEventListener('click', function() {
+        estudosECertificacoes.classList.add('hidden');
+        verMaisSobreBtn.style.display = 'inline-block'; // Mostra o botão "Ver Mais" novamente
+        this.style.display = 'none'; // Esconde o botão "Ver Menos"
+    });
+}
 });
