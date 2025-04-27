@@ -6,7 +6,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const menuIcon = document.querySelector('.menu > .ri-menu-line');
     const closeIcon = document.querySelector('.menu > .ri-close-line');
+    const textoDigitando = document.querySelector('.profissao-digitando');
+    const multiImageProjects = document.querySelectorAll('.img-port.multi-image');
+    const verMaisSecaoBtn = document.getElementById('ver-mais-secao');
+    const especialidadesFlex = document.querySelector('.especialidades .flex');
+    const verMaisSobreBtn = document.getElementById('ver-mais-sobre');
+    const verMenosSobreBtn = document.getElementById('ver-menos-sobre');
+    const estudosECertificacoes = document.querySelector('.info-completa');
+    const formularioDeContato = document.getElementById('meuFormularioDeContato');
+    const mensagemDeConfirmacaoDiv = document.getElementById('mensagemDeConfirmacao');
 
+    // Função de abrir o menu mobile
     function abrirMenuMobile() {
         menuMobile.classList.add('abrir-menu');
         overlayMenu.classList.add('abrir-overlay');
@@ -16,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('keydown', fecharComEsc);
     }
 
+    // Função de fechar o menu mobile
     function fecharMenuMobile() {
         menuMobile.classList.remove('abrir-menu');
         overlayMenu.classList.remove('abrir-overlay');
@@ -25,123 +36,131 @@ document.addEventListener('DOMContentLoaded', () => {
         document.removeEventListener('keydown', fecharComEsc);
     }
 
+    // Função para fechar com a tecla ESC
     function fecharComEsc(event) {
         if (event.key === 'Escape' && menuMobile.classList.contains('abrir-menu')) {
             fecharMenuMobile();
         }
     }
 
+    // Função de efeito de digitação
+    function digitarTexto() {
+        const textoCompleto = "Olá, eu sou Glailton Nascimento, Desenvolvedor Front-End e Back-end.";
+        let index = 0;
+        const velocidadeDigitacao = 100;
+
+        function digitar() {
+            if (index < textoCompleto.length) {
+                textoDigitando.textContent += textoCompleto.charAt(index);
+                index++;
+                setTimeout(digitar, velocidadeDigitacao);
+            }
+        }
+        setTimeout(digitar, 500);
+    }
+
+    // Função de animação das imagens de projetos
+    function animarImagensProjetos() {
+        multiImageProjects.forEach(project => {
+            const slider = project.querySelector('.image-slider');
+            const overlay = project.querySelector('.overlay');
+    
+            if (slider) {
+                project.addEventListener('mouseenter', () => {
+                    slider.style.animationPlayState = 'paused';
+                    overlay.style.opacity = '1';
+                });
+    
+                project.addEventListener('mouseleave', () => {
+                    slider.style.animationPlayState = 'running';
+                    overlay.style.opacity = '0';
+                });
+            }
+        });
+    }
+
+    // Função para mostrar/ocultar as especialidades
+    function alternarEspecialidades() {
+        if (verMaisSecaoBtn && especialidadesFlex) {
+            verMaisSecaoBtn.addEventListener('click', function() {
+                especialidadesFlex.classList.toggle('hidden');
+    
+                if (!especialidadesFlex.classList.contains('hidden')) {
+                    this.textContent = 'Ver Menos Especialidades';
+                } else {
+                    this.textContent = 'Ver Mais Especialidades';
+                }
+            });
+        }
+    }
+
+    // Função para mostrar/ocultar informações sobre
+    function alternarSobre() {
+        if (verMaisSobreBtn && verMenosSobreBtn && estudosECertificacoes) {
+            estudosECertificacoes.classList.add('hidden');
+            verMaisSobreBtn.style.display = 'inline-block';
+            verMenosSobreBtn.style.display = 'none';
+    
+            verMaisSobreBtn.addEventListener('click', function() {
+                estudosECertificacoes.classList.remove('hidden');
+                this.style.display = 'none';
+                verMenosSobreBtn.style.display = 'inline-block';
+            });
+    
+            verMenosSobreBtn.addEventListener('click', function() {
+                estudosECertificacoes.classList.add('hidden');
+                verMaisSobreBtn.style.display = 'inline-block';
+                this.style.display = 'none';
+            });
+        }
+    }
+
+    // Função para envio do formulário com EmailJS
+    async function enviarFormularioContato(event) {
+        event.preventDefault(); // Impede envio padrão
+
+        try {
+            const response = await emailjs.sendForm('service_w9htz46', 'template_egpkq9v', formularioDeContato);
+            console.log('E-mail enviado com sucesso!', response.status, response.text);
+
+            mensagemDeConfirmacaoDiv.textContent = 'MENSAGEM ENVIADA!';
+            mensagemDeConfirmacaoDiv.style.display = 'block';
+
+            formularioDeContato.reset(); // Limpa o formulário
+
+            setTimeout(() => {
+                mensagemDeConfirmacaoDiv.style.display = 'none';
+            }, 5000);
+
+        } catch (error) {
+            console.error('Erro ao enviar o e-mail:', error);
+
+            mensagemDeConfirmacaoDiv.textContent = 'Erro ao enviar. Tente novamente!';
+            mensagemDeConfirmacaoDiv.style.display = 'block';
+
+            setTimeout(() => {
+                mensagemDeConfirmacaoDiv.style.display = 'none';
+            }, 5000);
+        }
+    }
+
+    // Inicializa o EmailJS
+    emailjs.init('xlyXUKtB9Z98xFv0g'); // Public Key
+
+    // Evento de clique no menu
     btnMenu.addEventListener('click', abrirMenuMobile);
     btnFecharMobile.addEventListener('click', fecharMenuMobile);
     overlayMenu.addEventListener('click', fecharMenuMobile);
 
-    // --- Código para o efeito de digitação ---
-    const textoDigitando = document.querySelector('.profissao-digitando');
-    const textoCompleto = "Olá, eu sou Glailton Nascimento, Desenvolvedor Front-End e Back-end.";
-    textoDigitando.textContent = "";
-    let index = 0;
-    const velocidadeDigitacao = 100;
+    // Chama as funções
+    if (textoDigitando) digitarTexto();
+    animarImagensProjetos();
+    alternarEspecialidades();
+    alternarSobre();
 
-    function digitarTexto() {
-        if (index < textoCompleto.length) {
-            textoDigitando.textContent += textoCompleto.charAt(index);
-            index++;
-            setTimeout(digitarTexto, velocidadeDigitacao);
-        }
-    }
-
-    if (textoDigitando) {
-        setTimeout(digitarTexto, 500);
-        digitarTexto();
-    }
-
-    // --- Código para controlar a rolagem de imagens e o overlay dos projetos ---
-    const multiImageProjects = document.querySelectorAll('.img-port.multi-image');
-
-    multiImageProjects.forEach(project => {
-        const slider = project.querySelector('.image-slider');
-        const overlay = project.querySelector('.overlay');
-
-        if (slider) {
-            project.addEventListener('mouseenter', () => {
-                slider.style.animationPlayState = 'paused'; // Pausa a animação
-                overlay.style.opacity = '1'; // Mostra o overlay
-            });
-
-            project.addEventListener('mouseleave', () => {
-                slider.style.animationPlayState = 'running'; // Reinicia a animação
-                overlay.style.opacity = '0'; // Esconde o overlay
-            });
-        }
-    });
-
-    // --- NOVO CÓDIGO PARA "VER MAIS ESPECIALIDADES" (SEÇÃO INTEIRA) ---
-    const verMaisSecaoBtn = document.getElementById('ver-mais-secao');
-    const especialidadesFlex = document.querySelector('.especialidades .flex');
-
-    if (verMaisSecaoBtn && especialidadesFlex) {
-        verMaisSecaoBtn.addEventListener('click', function() {
-            especialidadesFlex.classList.toggle('hidden');
-
-            if (!especialidadesFlex.classList.contains('hidden')) {
-                this.textContent = 'Ver Menos Especialidades';
-            } else {
-                this.textContent = 'Ver Mais Especialidades';
-            }
-        });
-    }
-// --- CÓDIGO PARA "VER MAIS" E "VER MENOS" NA SEÇÃO "SOBRE" (AJUSTADO) ---
-const verMaisSobreBtn = document.getElementById('ver-mais-sobre');
-const verMenosSobreBtn = document.getElementById('ver-menos-sobre');
-const estudosECertificacoes = document.querySelector('.info-completa'); // Vamos usar uma classe para agrupar o que expandir
-
-if (verMaisSobreBtn && verMenosSobreBtn && estudosECertificacoes) {
-    // Inicialmente, esconde o conteúdo extra e mostra o Ver Mais
-    estudosECertificacoes.classList.add('hidden');
-    verMaisSobreBtn.style.display = 'inline-block';
-    verMenosSobreBtn.style.display = 'none';
-
-    verMaisSobreBtn.addEventListener('click', function() {
-        estudosECertificacoes.classList.remove('hidden');
-        this.style.display = 'none'; // Esconde o botão "Ver Mais"
-        verMenosSobreBtn.style.display = 'inline-block'; // Mostra o botão "Ver Menos"
-    });
-
-    verMenosSobreBtn.addEventListener('click', function() {
-        estudosECertificacoes.classList.add('hidden');
-        verMaisSobreBtn.style.display = 'inline-block'; // Mostra o botão "Ver Mais" novamente
-        this.style.display = 'none'; // Esconde o botão "Ver Menos"
-    });
-
-    // --- CÓDIGO PARA FORMULARIO DE CONTATO---
-    const formularioDeContato = document.getElementById('meuFormularioDeContato');
-    const mensagemDeConfirmacaoDiv = document.getElementById('mensagemDeConfirmacao');
-
+    // Envia o formulário de contato
     if (formularioDeContato) {
-        formularioDeContato.addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede o envio padrão
-
-            const formData = new FormData(this);
-
-            const nome = formData.get('from_name');
-            const email = formData.get('from_email');
-            const whatsapp = formData.get('whatsapp');
-            const mensagem = formData.get('message');
-
-            const assunto = 'Nova mensagem do seu portfólio!';
-            const corpo = `Nome: ${nome}\nE-mail: ${email}\nWhatsApp: ${whatsapp}\nMensagem: ${mensagem}`;
-
-            const mailtoLink = `mailto:glailtonprogramador88@gmail.com?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
-
-            window.location.href = mailtoLink; // Abre o cliente de e-mail
-
-            mensagemDeConfirmacaoDiv.textContent = 'Seu cliente de e-mail será aberto com a mensagem preenchida.';
-            mensagemDeConfirmacaoDiv.style.display = 'block';
-
-            setTimeout(function() {
-                mensagemDeConfirmacaoDiv.style.display = 'none';
-                formularioDeContato.reset();
-            }, 5000);
-        });
+        formularioDeContato.addEventListener('submit', enviarFormularioContato);
     }
-});    
+});
+
