@@ -250,14 +250,14 @@
     <section id="Contato" class="js-section formulario">
         <div class="container interface">
             <h2 class="titulo">FALA <span>COMIGO.</span></h2>
-
-            <form action="">
-                <input type="text" name="from_name" id="" placeholder="Seu nome completo:" required>
-                <input type="email" name="from_email" id="" placeholder="Seu e-mail:" required>
-                <input type="text" name="whatsapp" id="" placeholder="Seu Whatsapp:">
-                <textarea name="message" id="" placeholder="Sua mensagem:" required></textarea>
+            <form id="meuFormularioDeContato" action="">
+                <input type="text" name="from_name" placeholder="Seu nome completo:" required>
+                <input type="email" name="from_email" placeholder="Seu e-mail:" required>
+                <input type="text" name="whatsapp" placeholder="Seu Whatsapp:">
+                <textarea name="message" placeholder="Sua mensagem:" required></textarea>
                 <div class="btn-enviar"><input type="submit" value="ENVIAR"></div>
             </form>
+            <div id="mensagemDeConfirmacao" class="mensagem-confirmacao" style="display: none;"></div>
         </div>
     </section>
 

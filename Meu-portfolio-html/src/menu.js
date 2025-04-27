@@ -112,5 +112,36 @@ if (verMaisSobreBtn && verMenosSobreBtn && estudosECertificacoes) {
         verMaisSobreBtn.style.display = 'inline-block'; // Mostra o botão "Ver Mais" novamente
         this.style.display = 'none'; // Esconde o botão "Ver Menos"
     });
-}
-});
+
+    // --- CÓDIGO PARA FORMULARIO DE CONTATO---
+    const formularioDeContato = document.getElementById('meuFormularioDeContato');
+    const mensagemDeConfirmacaoDiv = document.getElementById('mensagemDeConfirmacao');
+
+    if (formularioDeContato) {
+        formularioDeContato.addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão
+
+            const formData = new FormData(this);
+
+            const nome = formData.get('from_name');
+            const email = formData.get('from_email');
+            const whatsapp = formData.get('whatsapp');
+            const mensagem = formData.get('message');
+
+            const assunto = 'Nova mensagem do seu portfólio!';
+            const corpo = `Nome: ${nome}\nE-mail: ${email}\nWhatsApp: ${whatsapp}\nMensagem: ${mensagem}`;
+
+            const mailtoLink = `mailto:glailtonprogramador88@gmail.com?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
+
+            window.location.href = mailtoLink; // Abre o cliente de e-mail
+
+            mensagemDeConfirmacaoDiv.textContent = 'Seu cliente de e-mail será aberto com a mensagem preenchida.';
+            mensagemDeConfirmacaoDiv.style.display = 'block';
+
+            setTimeout(function() {
+                mensagemDeConfirmacaoDiv.style.display = 'none';
+                formularioDeContato.reset();
+            }, 5000);
+        });
+    }
+});    

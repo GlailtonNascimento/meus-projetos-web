@@ -933,6 +933,17 @@ footer .logo-footer img {
     height: auto;
 }
 
+.mensagem-confirmacao {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
 /* BOTÃO "VOLTAR AO TOPO" FIXO (ajustando cores) */
 #btn-inicio-fixo {
     position: fixed;
