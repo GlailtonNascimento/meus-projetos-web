@@ -15,6 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const estudosECertificacoes = document.querySelector('.info-completa');
     const formularioDeContato = document.getElementById('meuFormularioDeContato');
     const mensagemDeConfirmacaoDiv = document.getElementById('mensagemDeConfirmacao');
+    const btnInicioFixo = document.getElementById('btn-inicio-fixo');
+    const secaoSobre = document.getElementById('Sobre');
+    const secaoInicio = document.getElementById('Inicio');
+
 
     // Função de abrir o menu mobile
     function abrirMenuMobile() {
@@ -64,13 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
         multiImageProjects.forEach(project => {
             const slider = project.querySelector('.image-slider');
             const overlay = project.querySelector('.overlay');
-    
+
             if (slider) {
                 project.addEventListener('mouseenter', () => {
                     slider.style.animationPlayState = 'paused';
                     overlay.style.opacity = '1';
                 });
-    
+
                 project.addEventListener('mouseleave', () => {
                     slider.style.animationPlayState = 'running';
                     overlay.style.opacity = '0';
@@ -82,9 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Função para mostrar/ocultar as especialidades
     function alternarEspecialidades() {
         if (verMaisSecaoBtn && especialidadesFlex) {
-            verMaisSecaoBtn.addEventListener('click', function() {
+            verMaisSecaoBtn.addEventListener('click', function () {
                 especialidadesFlex.classList.toggle('hidden');
-    
+
                 if (!especialidadesFlex.classList.contains('hidden')) {
                     this.textContent = 'Ver Menos Especialidades';
                 } else {
@@ -100,14 +104,14 @@ document.addEventListener('DOMContentLoaded', () => {
             estudosECertificacoes.classList.add('hidden');
             verMaisSobreBtn.style.display = 'inline-block';
             verMenosSobreBtn.style.display = 'none';
-    
-            verMaisSobreBtn.addEventListener('click', function() {
+
+            verMaisSobreBtn.addEventListener('click', function () {
                 estudosECertificacoes.classList.remove('hidden');
                 this.style.display = 'none';
                 verMenosSobreBtn.style.display = 'inline-block';
             });
-    
-            verMenosSobreBtn.addEventListener('click', function() {
+
+            verMenosSobreBtn.addEventListener('click', function () {
                 estudosECertificacoes.classList.add('hidden');
                 verMaisSobreBtn.style.display = 'inline-block';
                 this.style.display = 'none';
@@ -162,5 +166,32 @@ document.addEventListener('DOMContentLoaded', () => {
     if (formularioDeContato) {
         formularioDeContato.addEventListener('submit', enviarFormularioContato);
     }
+
+    function verificarPosicaoSobre() {
+        if (!secaoSobre || !secaoInicio || !btnInicioFixo) {
+            return;
+        }
+
+        const posicaoSobreTopo = secaoSobre.offsetTop;
+        const alturaViewport = window.innerHeight;
+        const rolagemAtual = window.scrollY;
+        const alturaSobre = secaoSobre.offsetHeight;
+        const inicioInicioVisivel = secaoInicio.offsetTop + alturaViewport / 2; // Ponto para começar a mostrar o botão
+
+        // Verifica se a seção "Sobre" está totalmente visível na tela
+        const sobreVisivel = rolagemAtual >= posicaoSobreTopo && rolagemAtual < (posicaoSobreTopo + alturaSobre - alturaViewport / 4); // Ajuste a margem inferior
+
+        // Verifica se a rolagem passou do ponto inicial para mostrar o botão
+        const passouInicio = rolagemAtual > inicioInicioVisivel;
+
+        if (sobreVisivel || !passouInicio) {
+            btnInicioFixo.classList.remove('mostrar');
+        } else {
+            btnInicioFixo.classList.add('mostrar');
+        }
+    }
+
+    window.addEventListener('load', verificarPosicaoSobre);
+    window.addEventListener('scroll', verificarPosicaoSobre);
 });
 
