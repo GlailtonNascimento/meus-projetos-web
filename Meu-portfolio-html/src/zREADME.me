@@ -12,19 +12,21 @@ Este é o meu portfólio web pessoal, desenvolvido com HTML, CSS e JavaScript pa
 
 A ideia central deste projeto é criar um espaço online profissional e dinâmico para apresentar minhas habilidades, experiências e projetos de desenvolvimento web. O portfólio visa ser uma vitrine do meu trabalho, facilitando que recrutadores, colaboradores e outros interessados conheçam meu perfil, minhas especialidades e entrem em contato comigo.
 
-**Ideia Futura (Back-end com PHP):** Em futuras iterações, planejo integrar o back-end utilizando PHP e um banco de dados MySQL para:
+### Ideia Futura (Back-end com PHP)
 
-* **Processamento do Formulário de Contato:** Substituir o EmailJS por um sistema de envio de e-mails diretamente do servidor, oferecendo maior controle e confiabilidade.
-* **Gerenciamento de Projetos (Opcional):** Possibilitar a administração e exibição dos projetos através de um painel de controle, tornando a atualização do portfólio mais dinâmica.
-* **Outras Funcionalidades Dinâmicas:** Explorar outras funcionalidades que o back-end pode oferecer para enriquecer a experiência do usuário.
+Em futuras iterações, planejo integrar o back-end utilizando PHP e um banco de dados MySQL para:
+
+* Processamento do Formulário de Contato: Substituir o EmailJS por um sistema de envio de e-mails diretamente do servidor, oferecendo maior controle e confiabilidade.
+* Gerenciamento de Projetos (Opcional): Possibilitar a administração e exibição dos projetos através de um painel de controle, tornando a atualização do portfólio mais dinâmica.
+* Outras Funcionalidades Dinâmicas: Explorar outras funcionalidades que o back-end pode oferecer para enriquecer a experiência do usuário.
 
 ## Objetivo do Projeto (Atual)
 
-* **Apresentar minhas habilidades:** Demonstrar proficiência em tecnologias front-end (HTML, CSS, JavaScript) e conhecimentos em back-end (Java, Python, PHP e seus respectivos frameworks) e bancos de dados SQL.
-* **Mostrar meus projetos:** Exibir os projetos que desenvolvi, com destaque para o código no GitHub e a possibilidade de visualização online (quando aplicável).
-* **Fornecer informações sobre minha trajetória:** Compartilhar minha transição para a área de tecnologia, experiências prévias relevantes e minha busca por aprendizado contínuo.
-* **Facilitar o contato:** Oferecer um formulário de contato direto e links para minhas redes sociais profissionais (LinkedIn, GitHub, Instagram) e WhatsApp.
-* **Criar uma experiência de usuário agradável:** Proporcionar uma navegação intuitiva, um design responsivo e interações dinâmicas que engajem o visitante.
+* Apresentar minhas habilidades: Demonstrar proficiência em tecnologias front-end (HTML, CSS, JavaScript) e conhecimentos em back-end (Java, Python, PHP e seus respectivos frameworks) e bancos de dados SQL.
+* Mostrar meus projetos: Exibir os projetos que desenvolvi, com destaque para o código no GitHub e a possibilidade de visualização online (quando aplicável).
+* Fornecer informações sobre minha trajetória: Compartilhar minha transição para a área de tecnologia, experiências prévias relevantes e minha busca por aprendizado contínuo.
+* Facilitar o contato: Oferecer um formulário de contato direto e links para minhas redes sociais profissionais (LinkedIn, GitHub, Instagram) e WhatsApp.
+* Criar uma experiência de usuário agradável: Proporcionar uma navegação intuitiva, um design responsivo e interações dinâmicas que engajem o visitante.
 
 ## Tecnologias Utilizadas
 
@@ -41,26 +43,40 @@ A ideia central deste projeto é criar um espaço online profissional e dinâmic
 
 ## Estrutura da Página (`index.html`)
 
-O portfólio é composto pelas seguintes seções principais:
-
-* **`header`:** Menu de navegação principal (desktop e mobile), logotipo e título.
-* **`section#Inicio` (Topo do Site):** Apresentação principal, informações de contato e foto de perfil.
-* **`section#Sobre` (Sobre):** Informações pessoais, trajetória, experiências, estudos e certificações.
-* **`section#Especialidade` (Especialidades):** Destaque das habilidades e tecnologias de conhecimento.
-* **`section#Projetos` (Portfólio):** Exibição dos projetos com detalhes e links.
-* **`section#Contato` (Formulário):** Formulário para contato direto (atualmente via EmailJS).
-* **`footer`:** Informações de contato e links para redes sociais.
-* **Menu Mobile (`#menu-mobile`):** Menu lateral responsivo para dispositivos móveis.
-* **Overlay do Menu (`.overlay-menu`):** Camada escura ao abrir o menu mobile.
-* **Botão "Voltar ao Topo" Fixo (`#btn-inicio-fixo`):** Botão flutuante para retornar ao início.
+* `header`: Menu de navegação principal (desktop e mobile), logotipo e título.
+* `section#Inicio` (Topo do Site): Apresentação principal, informações de contato e foto de perfil.
+* `section#Sobre` (Sobre): Informações pessoais, trajetória, experiências, estudos e certificações.
+* `section#Especialidade` (Especialidades): Destaque das habilidades e tecnologias de conhecimento.
+* `section#Projetos` (Portfólio): Exibição dos projetos com detalhes e links.
+* `section#Contato` (Formulário): Formulário para contato direto (atualmente via EmailJS).
+* `footer`: Informações de contato e links para redes sociais.
+* `#menu-mobile`: Menu lateral responsivo para navegação em dispositivos móveis.
+* `.overlay-menu`: Camada escura ao abrir o menu mobile.
+* `#btn-inicio-fixo`: Botão flutuante para retornar ao início.
 
 ## Estilos (CSS - `style.css`)
 
-[Inclua aqui o resumo do seu `style.css` que criamos anteriormente]
+* **Paleta de Cores:** Uma paleta escura predominante (#000000, #13131F, #212121, #1a1a1a) com destaque para uma cor roxa vibrante (#8257E6) utilizada em elementos interativos, títulos e detalhes importantes.
+* **Tipografia:** A fonte principal utilizada é a 'DM Sans' (do Google Fonts), com pesos e estilos variados para diferentes elementos. A fonte 'Poppins' também é utilizada para títulos e links do menu, conferindo um toque moderno.
+* **Layout Responsivo:** O portfólio foi desenvolvido com foco na responsividade, utilizando media queries para adaptar o layout a diferentes tamanhos de tela (desktop, tablets e dispositivos móveis). Isso garante uma experiência de usuário consistente em diversos dispositivos.
+* **Cabeçalho Fixo:** O cabeçalho principal permanece fixo no topo da tela, facilitando a navegação entre as seções do portfólio.
+* **Menu Mobile:** Um menu hambúrguer é implementado para dispositivos móveis, proporcionando uma navegação otimizada em telas menores.
+* **Animações e Transições:** Diversas animações e transições suaves foram aplicadas para melhorar a interatividade e o engajamento do usuário, como o efeito de digitação no título, a animação de flutuação da imagem de perfil e as transições de hover nos links e botões.
+* **Seções Distintas:** Cada seção do portfólio (Início, Sobre, Especialidades, Projetos, Contato e Rodapé) possui estilos específicos para destacar seu conteúdo e criar uma hierarquia visual clara.
+* **Especialidades:** A seção de especialidades utiliza um layout flexível para exibir as habilidades e tecnologias de forma organizada, com um botão "Ver Mais" para expandir a descrição de cada item.
+* **Portfólio de Projetos:** Os projetos são apresentados em um layout de grid responsivo, com um efeito de overlay ao passar o mouse que exibe informações sobre o projeto e links para o código e visualização online. Alguns projetos utilizam um efeito de slider de imagens.
+* **Formulário de Contato:** Um formulário estilizado permite que os visitantes entrem em contato diretamente.
+* **Botão "Voltar ao Topo":** Um botão fixo no canto inferior direito facilita o retorno ao início da página.
+* **Design Dark:** O tema predominante é escuro, com cores de texto claras para garantir a legibilidade e um visual moderno.
 
 ## Funcionalidades (JavaScript - `menus.js` e outros scripts)
 
-[Inclua aqui o resumo do seu JavaScript que criamos anteriormente]
+* **Menu Mobile:** Abre e fecha o menu lateral para navegação em dispositivos móveis, com suporte para fechamento via tecla "Escape".
+* **Efeito de Digitação:** Aplica um efeito de digitação animado ao título principal na seção "Início".
+* **Animação das Imagens dos Projetos:** Pausa a animação de slider e exibe o overlay de informações ao passar o mouse nos projetos com múltiplas imagens.
+* **Mostrar/Ocultar Especialidades:** Permite expandir e recolher a lista de especialidades na seção correspondente.
+* **Mostrar/Ocultar Informações "Sobre":** Expande e recolhe a seção com mais detalhes sobre o autor.
+* **Envio de Formulário de Contato com EmailJS:** Envia os dados do formulário de contato diretamente para o e-mail do autor, exibindo mensagens de confirmação ou erro.
 
 ## Como Visualizar
 
